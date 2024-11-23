@@ -4,29 +4,29 @@ const key = keyframes`
   from{
     transform: translateX(0%);
 }
-
-to{
+  to{
     transform: translateX(-100%);
 }
-
 `;
 
 export const Header = styled.header`
-  div:first-child {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: #000000;
-    padding: 0.625rem;
+  max-width: 100%;
+`;
 
-    p {
-      font-weight: 600;
-      color: #00ff0f;
+export const DivPay = styled.div`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #000000;
+  padding: 0.625rem;
 
-      &::selection {
-        display: none;
-      }
+  p {
+    font-weight: 600;
+    color: #00ff0f;
+
+    &::selection {
+      display: none;
     }
   }
 `;
