@@ -17,11 +17,12 @@ export const DivPay = styled.div`
   display: flex;
   align-content: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
   background-color: #000000;
   padding: 0.625rem;
 
   p {
+    font-size: 0.94rem;
     font-weight: 600;
     color: #00ff0f;
 
