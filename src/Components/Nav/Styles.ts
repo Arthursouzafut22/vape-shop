@@ -1,6 +1,11 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { PropsNav } from "./NavComponent";
 import { getAnimation } from "./animationNav";
+
+const flexItem = css`
+  display: flex;
+  align-items: center;
+`;
 
 export const Nav = styled.nav`
   padding: 0.94rem;
@@ -14,15 +19,21 @@ export const WrapperNav = styled.div<PropsNav>`
   flex-direction: ${({ mobile }) => (mobile ? "column" : "row")};
   gap: 1.38rem;
   max-width: 1200px;
-  padding-block: 0.31rem;
+  padding-block: ${({ mobile }) => (mobile ? "20px" : "0.31rem")};
+  padding-inline: ${({ mobile }) => mobile && "0.94rem"};
   margin: ${({ mobile }) => (mobile ? "15px auto auto" : "0 auto")};
-  ${({ activeMenu, mobile }) => getAnimation(activeMenu, mobile)}
+  ${({ activeMenu, mobile }) => getAnimation(activeMenu, mobile)};
+  position: ${({ mobile }) => (mobile ? "absolute" : "initial")};
+  box-shadow: ${({ mobile }) =>
+    mobile && "6px 5px 3px 0px rgba(204, 204, 204, 0.17)"};
+  background-color: #ffffff;
+  width: ${({ mobile }) => mobile && "100%"};
   z-index: 20;
+  left: ${({ mobile }) => mobile && "0%"};
 
   a {
     font-size: 1.06rem;
-    display: flex;
-    align-items: center;
+    ${flexItem};
     gap: 0.31rem;
     color: #000000;
   }
@@ -30,8 +41,7 @@ export const WrapperNav = styled.div<PropsNav>`
 export const ButtonMobile = styled.button`
   font-size: 0.94rem;
   font-weight: 600;
-  display: flex;
-  align-items: center;
+  ${flexItem};
   padding: 0.25rem 0.19rem;
   border-radius: 0.31rem;
   border: none;

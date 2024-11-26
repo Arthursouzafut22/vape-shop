@@ -9,7 +9,7 @@ export const Div = styled.div<{ mobile: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: ${({ mobile }) => (mobile ? "16px" : "50px")};
+  gap: ${({ mobile }) => (mobile ? "1rem" : "3.13rem")};
   max-width: 1200px;
   margin: 0 auto;
 
@@ -27,8 +27,8 @@ export const Div = styled.div<{ mobile: boolean }>`
 
     div {
       display: flex;
-      flex-direction: column;
       align-items: start;
+      flex-direction: column;
 
       P {
         font-size: 0.88rem;

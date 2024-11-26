@@ -1,4 +1,4 @@
-import { styled, keyframes } from "styled-components";
+import { styled, keyframes, css } from "styled-components";
 
 const key = keyframes`
   from{
@@ -9,13 +9,17 @@ const key = keyframes`
 }
 `;
 
+const flexItem = css`
+  display: flex;
+  align-items: center;
+`;
+
 export const Header = styled.header`
   max-width: 100%;
 `;
 
 export const DivPay = styled.div`
-  display: flex;
-  align-content: center;
+  ${flexItem};
   justify-content: center;
   gap: 0.5rem;
   background-color: #000000;
@@ -33,8 +37,7 @@ export const DivPay = styled.div`
 `;
 
 export const WrapperBanner = styled.div`
-  display: flex;
-  align-items: center;
+  ${flexItem};
   animation: ${key} 15s linear infinite;
 
   img {

@@ -5,14 +5,17 @@ import NavComponent from "./NavComponent";
 import { HiMenu } from "react-icons/hi";
 
 const Nav: React.FC = () => {
-  const [activeMenu, setActiveMenu] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(true);
   const { mobile } = UseMedia("(max-width:1129px)");
 
   return (
     <>
-      <S.Nav>
+      <S.Nav role="navigation">
         {mobile && (
-          <S.ButtonMobile onTouchStart={() => setActiveMenu(!activeMenu)}>
+          <S.ButtonMobile
+            onTouchStart={() => setActiveMenu(!activeMenu)}
+            aria-label="menu"
+          >
             <HiMenu
               style={{
                 transform: activeMenu ? "rotate(810deg)" : "rotate(360deg)",
