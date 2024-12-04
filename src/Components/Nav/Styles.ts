@@ -26,7 +26,7 @@ export const WrapperNav = styled.div<PropsNav>`
   position: ${({ mobile }) => (mobile ? "absolute" : "initial")};
   box-shadow: ${({ mobile }) =>
     mobile && "6px 5px 3px 0px rgba(204, 204, 204, 0.17)"};
-  background-color: #ffffff;
+  background-color: #f9f9f9;
   width: ${({ mobile }) => mobile && "100%"};
   z-index: 20;
   left: ${({ mobile }) => mobile && "0%"};

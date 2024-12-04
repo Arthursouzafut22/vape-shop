@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
 body{
     font-family: "Roboto", serif;
     overflow-x:hidden;
+    background-color: #F9F9F9;
 }
 
 

@@ -5,7 +5,7 @@ import NavComponent from "./NavComponent";
 import { HiMenu } from "react-icons/hi";
 
 const Nav: React.FC = () => {
-  const [activeMenu, setActiveMenu] = useState(true);
+  const [activeMenu, setActiveMenu] = useState(false);
   const { mobile } = UseMedia("(max-width:1129px)");
 
   return (

@@ -1,0 +1,1 @@
+export const baseUrlImage = "http://localhost:3000/images/";

@@ -2,6 +2,7 @@ import * as S from "./Styles";
 import Logo from "../../assets/image/logo.avif";
 import Input from "../Input/Input";
 import { GrCart } from "react-icons/gr";
+import { FaSearch } from "react-icons/fa";
 import { MdLocationPin } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import UseMedia from "../../Hooks/UseMedia";
@@ -20,6 +21,9 @@ const LogoSearchCart: React.FC = () => {
             value={""}
             placeholder="O que procura hoje ? :)"
           />
+          <button>
+            <FaSearch />
+          </button>
         </S.Form>
 
         <NavLink to="/rastreio">
@@ -33,6 +37,7 @@ const LogoSearchCart: React.FC = () => {
         </NavLink>
 
         <NavLink to="/cart">
+          <S.ValueCart>1</S.ValueCart>
           <GrCart style={{ fontSize: "26px", color: "#ffffff" }} />
         </NavLink>
       </S.Div>
