@@ -25,3 +25,7 @@ const Cards = ({ item }: { item: DadosProps }) => {
 };
 
 export default Cards;
+
+
+
+

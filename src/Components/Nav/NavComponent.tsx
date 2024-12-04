@@ -26,7 +26,7 @@ const NavComponent = ({ mobile, activeMenu }: PropsNav) => {
         <IoMdContact style={{ fontSize: "17px" }} />
         Contato
       </NavLink>
-      <NavLink to="/contato">
+      <NavLink to="/liquidos">
         <GiLiquidSoap style={{ fontSize: "17px" }} />
         Liquidos
       </NavLink>
