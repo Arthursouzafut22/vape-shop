@@ -7,6 +7,7 @@ const Liquidos = () => {
 
   return (
     <S.Section>
+      <h2>💧Líquidos💧</h2>
       <S.Wrapper>
         {dados && dados.map((item) => <Cards key={item.id} item={item} />)}
       </S.Wrapper>

@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  border: 1px solid;
   max-width: 1200px;
   margin: 20px auto auto auto;
+
+  h2{
+    padding-inline: 0.94rem;
+  }
 `;
 
 export const Wrapper = styled.div`

@@ -1,22 +1,10 @@
 import * as S from "./Styles";
-import UseRequest from "../../Api/UseRequest";
-import Cards from "../../Components/Cards/Cards";
-import { Suspense } from "react";
+import TheAtacado from "../../pages/Atacado/TheAtacado";
 
 const Home = () => {
-  const { dados } = UseRequest("/atacado");
-
   return (
     <S.Main>
-      <h2>📦Atacado📦</h2>
-      <S.Wrapper>
-        {dados &&
-          dados.map((item) => (
-            <Suspense fallback={<p>Carregando...</p>}>
-              <Cards key={item.id} item={item} />
-            </Suspense>
-          ))}
-      </S.Wrapper>
+      <TheAtacado />
     </S.Main>
   );
 };
