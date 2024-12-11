@@ -1,9 +1,9 @@
 import * as S from "./Styles";
-import UseRequest from "../../Api/UseRequest";
+import useRequest from "../../Api/UseRequest";
 import Cards from "../../Components/Cards/Cards";
 
 const Liquidos = () => {
-  const { dados } = UseRequest("/liquidos");
+  const { dados } = useRequest("/liquidos");
 
   return (
     <S.Section>

@@ -22,13 +22,13 @@ const NavComponent = ({ mobile, activeMenu }: PropsNav) => {
         <RiShoppingBag4Fill style={{ fontSize: "17px" }} />
         Atacado
       </NavLink>
-      <NavLink to="/contato">
-        <IoMdContact style={{ fontSize: "17px" }} />
-        Contato
-      </NavLink>
       <NavLink to="/liquidos">
         <GiLiquidSoap style={{ fontSize: "17px" }} />
         Liquidos
+      </NavLink>
+      <NavLink to="/contato">
+        <IoMdContact style={{ fontSize: "17px" }} />
+        Contato
       </NavLink>
       <NavLink to="/contato">
         <GrProductHunt style={{ fontSize: "17px" }} />

@@ -1,11 +1,11 @@
 import * as S from "./Styles";
-import UseRequest from "../../Api/UseRequest";
+import useRequest from "../../Api/UseRequest";
 import Cards from "../../Components/Cards/Cards";
 import { Suspense } from "react";
 
 const Atacado: React.FC = () => {
-  const { dados } = UseRequest("/atacado");
-  
+  const { dados } = useRequest("/atacado");
+
   return (
     <S.Section>
       <h2>📦Atacado📦</h2>

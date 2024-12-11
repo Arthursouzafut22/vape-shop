@@ -3,7 +3,10 @@ import styled from "styled-components";
 export const Section = styled.section`
   max-width: 1200px;
   margin: 20px auto auto auto;
-  border: 1px solid;
+
+  h1{
+    padding-inline: 0.94rem;
+  }
 `;
 
 export const Wrapper = styled.div<{ mobile: boolean }>`
@@ -12,11 +15,16 @@ export const Wrapper = styled.div<{ mobile: boolean }>`
   justify-content: space-between;
   flex-wrap: ${({ mobile }) => mobile && "wrap"};
   gap: 20px;
+  margin-top: 20px;
 `;
 
 export const DivOne = styled.div`
   padding-inline: 0.94rem;
   width: 100%;
+
+  h2 {
+    font-weight: normal;
+  }
 
   form {
     margin-top: 20px;
@@ -31,7 +39,7 @@ export const DivOne = styled.div`
       cursor: pointer;
       background-color: #2f982f;
       color: #ffffff;
-      margin-top: 10px;
+      margin-top: 12px;
 
       &:hover {
         opacity: 0.8;
@@ -45,6 +53,12 @@ export const DivOne = styled.div`
       margin-top: 10px;
       padding: 10px;
       border-radius: 8px;
+      border: 1px solid #eaeaea;
+      outline: 1px solid transparent;
+
+      &:focus {
+        outline: 2px solid #2f982f;
+      }
     }
   }
 `;
@@ -52,6 +66,11 @@ export const DivOne = styled.div`
 export const DivTwo = styled.div`
   padding-inline: 0.94rem;
   width: 70%;
+
+  h2 {
+    font-size: clamp(1.5rem, 2vw, 1.8rem);
+    font-weight: normal;
+  }
 
   p {
     font-size: 17px;
@@ -80,5 +99,11 @@ export const WrapperInputs = styled.div`
     width: 100%;
     padding: 10px;
     border-radius: 8px;
+    border: 1px solid #eaeaea;
+    outline: 1px solid transparent;
+
+    &:focus {
+      outline: 2px solid #2f982f;
+    }
   }
 `;

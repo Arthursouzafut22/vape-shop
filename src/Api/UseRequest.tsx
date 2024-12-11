@@ -1,27 +1,35 @@
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "./baseUrl";
 
 export type DadosProps = {
   id: number;
   nome: string;
   preco: number;
-  imagem: string;
+  imagem: string[];
+  sabores: string[];
 };
 
-const UseRequest = (endPoint: string) => {
+const useRequest = (endPoint: string) => {
   const [dados, setDados] = useState<DadosProps[] | null>(null);
-  const baseUrl = "http://localhost:3000";
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
     (async () => {
       try {
-        const $esponse = await fetch(`${baseUrl + endPoint}`);
+        const $esponse = await fetch(`${API_BASE_URL + endPoint}`, { signal });
         if (!$esponse.ok) throw new Error("Error no response!");
-        const $Json = (await $esponse.json()) as DadosProps[];
-        setDados($Json);
+        const $json = (await $esponse.json()) as DadosProps[];
+        setDados($json);
       } catch (erro) {
-        console.error("Error", erro);
+        console.error("Error:", erro);
       }
     })();
+
+    return () => {
+      controller.abort();
+    };
   }, [endPoint]);
 
   return {
@@ -29,4 +37,4 @@ const UseRequest = (endPoint: string) => {
   };
 };
 
-export default UseRequest;
+export default useRequest;

@@ -3,6 +3,7 @@ import Home from "../pages/Home/TheHome";
 import Atacado from "../pages/Atacado/TheAtacado";
 import Contato from "../pages/Contato/TheContato";
 import Liquidos from "../pages/Liquidos/Liquidos";
+import Product from "../pages/Product/Product";
 import Cart from "../pages/Cart/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -16,6 +17,7 @@ export const Router = () => {
         <Route path="/contato" element={<Contato />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/liquidos" element={<Liquidos />} />
+        <Route path="/product/:id" element={<Product />} />
       </Routes>
     </BrowserRouter>
   );
