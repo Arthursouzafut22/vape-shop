@@ -1,8 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const greenColor = "#2f982f";
 const darkColor = "#677279";
 const whiteColor = "#ffffff";
+
+const flexItems = css`
+  display: flex;
+  align-items: center;
+`;
 
 export const Section = styled.section`
   max-width: 1200px;
@@ -10,28 +15,26 @@ export const Section = styled.section`
 `;
 
 export const WrapperLinks = styled.div`
-  display: flex;
-  align-items: center;
+  ${flexItems};
   justify-content: space-between;
   padding-inline: 0.94rem;
 
   div {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    ${flexItems};
+    gap: 0.38rem;
 
     a {
-      font-size: 15px;
+      font-size: 0.94rem;
       display: block;
       color: ${darkColor};
     }
   }
 
   .link-back {
+    font-size: 0.94rem;
     display: block;
-    font-size: 15px;
     font-weight: 500;
-    padding: 0.625rem 15px;
+    padding: 0.625rem 0.94rem;
     border-radius: 0.5rem;
     border: none;
     cursor: pointer;
@@ -41,9 +44,9 @@ export const WrapperLinks = styled.div`
 `;
 export const WrapperGlobal = styled.div`
   display: flex;
-  align-items: start;
+  align-items: stretch;
   justify-content: space-between;
-  gap: 15px;
+  gap: 0.94rem;
   margin-top: 15px;
   padding-inline: 0.94rem;
 
@@ -56,24 +59,25 @@ export const WrapperGlobal = styled.div`
 export const WrapperOne = styled.div`
   display: flex;
   align-items: start;
-  gap: 10px;
+  gap: 0.63rem;
   background-color: ${whiteColor};
-  padding-inline: 0.94rem;
-  height: 100%;
-  width: 100%;
   flex: 1;
+  padding-inline: 0.94rem;
+  width: 100%;
 
   @media screen and (max-width: 1039px) {
     flex-wrap: wrap;
     align-items: center;
     flex-direction: column;
     flex-direction: column-reverse;
+    justify-content: start;
   }
 
   .imgsProduct {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-self: start;
+    gap: 0.63rem;
 
     @media screen and (max-width: 1039px) {
       flex-wrap: wrap;
@@ -83,7 +87,7 @@ export const WrapperOne = styled.div`
 
     img {
       display: block;
-      max-width: 100px;
+      max-width: clamp(5rem, 4vw, 6.25rem);
       cursor: pointer;
     }
   }
@@ -103,13 +107,12 @@ export const WrapperTwo = styled.div`
   background-color: ${whiteColor};
   padding-inline: 0.94rem;
   padding-block: 0.94rem;
-  height: 100%;
   flex: 1;
   width: 100%;
 
   .div-one {
     h1 {
-      font-size: clamp(25px, 4vw, 28px);
+      font-size: clamp(1.75rem, 4vw, 1.75rem);
     }
 
     h1 ~ span {
@@ -117,97 +120,105 @@ export const WrapperTwo = styled.div`
       display: block;
       color: ${whiteColor};
       background-color: ${greenColor};
-      max-width: 200px;
+      max-width: 12.5rem;
       width: 100%;
-      padding: 3px 8px;
+      padding: 0.19rem 0.5rem;
       white-space: nowrap;
       margin-top: 5px;
-      border-radius: 5px;
+      border-radius: 0.31rem;
     }
 
     h1 ~ p {
-      font-size: clamp(25px, 4vw, 29px);
+      font-size: clamp(1.75rem, 4vw, 1.75rem);
       font-weight: 600;
       margin-block: 8px;
     }
   }
 
+  .div-two {
+    .buy {
+      ${flexItems};
+      gap: 0.25rem;
+      font-weight: 600;
+      color: #096dd9;
+      margin: 10px 0px;
+    }
+  }
+
   .div-two ~ p {
-    font-size: 17px;
+    font-size: 1.06rem;
     font-weight: 600;
     margin-top: 5px;
   }
 `;
 
 export const ContainerIcons = styled.div`
-  margin-top: 10px;
+  margin: 10px 0px;
 
   span {
-    font-size: 22px;
+    font-size: 1.38rem;
     color: #677279;
   }
 `;
 
 export const ContainerSabores = styled.div`
-  display: flex;
-  align-items: center;
+  ${flexItems};
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.63rem;
   margin-top: 10px;
 
   button {
-    font-size: 17px;
+    font-size: clamp(0.94rem, 4vw, 1.06rem);
     display: block;
-    padding: 5px 7px;
+    padding: 0.31rem 0.44rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0.31rem;
     color: #4c4c4c;
     border: 2px solid #d4d6d8;
+    background-color: transparent;
   }
 `;
 
 export const ContainerAmount = styled.div`
   display: flex;
-  align-items: start;
-  gap: 6px;
-  margin-top: 15px;
+  align-items: center;
+  gap: 0.38rem;
+  margin-top: 20px;
 `;
 
 export const ContainerPix = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  ${flexItems};
+  gap: 0.5rem;
   background-color: #f6f6f6;
-  padding: 5px 8px;
-  border-radius: 10px;
-  margin-top: 10px;
+  padding: 0.31rem 0.5rem;
+  border-radius: 0.63rem;
+  margin-top: 20px;
 
   div {
     p {
-      font-size: 13px !important;
+      font-size: 0.81rem !important;
       margin: 0 !important;
 
       .price {
-        font-size: 15px;
+        font-size: 0.94rem;
         font-weight: 600 !important;
       }
 
       span:last-child {
         color: ${whiteColor};
         background-color: #00b27a;
-        padding-inline: 3px;
-        border-radius: 3px;
+        padding-inline: 0.19rem;
+        border-radius: 0.19rem;
       }
     }
   }
 `;
 export const ButtonAddCart = styled.button`
-  font-size: 17px;
+  font-size: clamp(0.94rem, 4vw, 1.06rem);
   width: 100%;
   display: block;
-  padding: 12px;
-  border-radius: 10px;
-  margin-top: 10px;
+  padding: 0.75rem;
+  border-radius: 0.63rem;
   cursor: pointer;
   color: ${whiteColor};
   background-color: ${greenColor};

@@ -7,7 +7,7 @@ import { API_BASE_IMAGE } from "../../Api/baseUrl";
 import { IoStarSharp } from "react-icons/io5";
 import QuantityControl from "./QuantityControl/QuantityControl";
 import FormateValue from "../../Components/FormateValue/FormateValue";
-// import { SlBadge } from "react-icons/sl";
+import { SlBadge } from "react-icons/sl";
 import { FaPix } from "react-icons/fa6";
 
 const Product = () => {
@@ -87,6 +87,9 @@ const Product = () => {
                 <p>Pague com pix e economize R$ 0,00</p>
               </div>
             </S.ContainerPix>
+            <p className="buy">
+              <SlBadge /> Compra Segura Produto Original.
+            </p>
             <S.ButtonAddCart>ADICIONAR AO CARRINHO</S.ButtonAddCart>
           </div>
         </S.WrapperTwo>
