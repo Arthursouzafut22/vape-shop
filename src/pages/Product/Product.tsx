@@ -9,12 +9,15 @@ import QuantityControl from "./QuantityControl/QuantityControl";
 import FormateValue from "../../Components/FormateValue/FormateValue";
 import { SlBadge } from "react-icons/sl";
 import { FaPix } from "react-icons/fa6";
+import { AuthCart } from "../../context/CartContext";
 
 const Product = () => {
   const { dados } = useRequest("/products");
-  const { indexImg, replaceImage, refImage } = useImage();
+  const { indexImg, replaceImage, boderColor } = useImage();
   const { id } = useParams();
   const searchProduct = dados?.find((i) => i.id === Number(id));
+  const { addProductCart } = AuthCart();
+  if (!searchProduct) return null;
 
   return (
     <S.Section>
@@ -35,6 +38,7 @@ const Product = () => {
                   src={`${API_BASE_IMAGE + item}`}
                   alt={item}
                   key={index}
+                  style={{ border: boderColor ? "2px solid red" : "initial" }}
                   onClick={(event) => replaceImage(event, index)}
                 />
               ))}
@@ -44,7 +48,6 @@ const Product = () => {
               <img
                 src={`${API_BASE_IMAGE + searchProduct?.imagem[indexImg]}`}
                 alt="imagem"
-                ref={refImage}
               />
             )}
           </picture>
@@ -90,7 +93,9 @@ const Product = () => {
             <p className="buy">
               <SlBadge /> Compra Segura Produto Original.
             </p>
-            <S.ButtonAddCart>ADICIONAR AO CARRINHO</S.ButtonAddCart>
+            <S.ButtonAddCart onClick={() => addProductCart(searchProduct)}>
+              ADICIONAR AO CARRINHO
+            </S.ButtonAddCart>
           </div>
         </S.WrapperTwo>
       </S.WrapperGlobal>

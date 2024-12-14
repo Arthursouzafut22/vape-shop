@@ -6,9 +6,11 @@ import { FaSearch } from "react-icons/fa";
 import { MdLocationPin } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import UseMedia from "../../Hooks/UseMedia";
+import { AuthCart } from "../../context/CartContext";
 
 const LogoSearchCart: React.FC = () => {
   const { mobile } = UseMedia("(max-width: 1129px)");
+  const { state } = AuthCart();
 
   return (
     <S.Wrapper>
@@ -37,7 +39,7 @@ const LogoSearchCart: React.FC = () => {
         </NavLink>
 
         <NavLink to="/cart">
-          <S.ValueCart>1</S.ValueCart>
+          <S.ValueCart>{state.length}</S.ValueCart>
           <GrCart style={{ fontSize: "26px", color: "#ffffff" }} />
         </NavLink>
       </S.Div>
