@@ -9,7 +9,7 @@ import QuantityControl from "./QuantityControl/QuantityControl";
 import FormateValue from "../../Components/FormateValue/FormateValue";
 import { SlBadge } from "react-icons/sl";
 import { FaPix } from "react-icons/fa6";
-import { AuthCart } from "../../context/CartContext";
+import { AuthCart } from "../../context/Cart/CartContext";
 
 const Product = () => {
   const { dados } = useRequest("/products");

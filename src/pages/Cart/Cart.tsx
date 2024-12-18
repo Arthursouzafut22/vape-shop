@@ -1,12 +1,14 @@
 import * as S from "./Styles";
 import { API_BASE_IMAGE } from "../../Api/baseUrl";
-import QuantityControl from "../Product/QuantityControl/QuantityControl";
 import { IoMdHeart } from "react-icons/io";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import { AuthCart } from "../../context/CartContext";
+import { AuthCart } from "../../context/Cart/CartContext";
+import FormateValue from "../../Components/FormateValue/FormateValue";
+import QuantityControlCart from "../Product/QuantityControl/QuantityControlCart";
 
 const Cart: React.FC = () => {
-  const { state } = AuthCart();
+  const { state, total, removeProduct } = AuthCart();
+  console.log(total);
 
   return (
     <S.Section>
@@ -21,6 +23,7 @@ const Cart: React.FC = () => {
               <span>Total</span>
             </div>
           </div>
+          {state.length === 0 && <p>Carrinho Vazio 😢...</p>}
           {state &&
             state.map((item) => (
               <S.ProductCart>
@@ -32,19 +35,22 @@ const Cart: React.FC = () => {
                   />
                   <div>
                     <p>{item.nome}</p>
-                    <p>{item.preco}</p>
+                    <p>{FormateValue(item.preco)}</p>
                   </div>
                 </S.WrapperOne>
 
                 <S.WrapperTwo>
-                  <QuantityControl />
-                  <button className="button-remove">
+                  <QuantityControlCart product={item} quantidade={item.quantidade} />
+                  <button
+                    className="button-remove"
+                    onClick={() => removeProduct(item.id)}
+                  >
                     <RiDeleteBin5Fill style={{ fontSize: "20px" }} />
                   </button>
                 </S.WrapperTwo>
 
                 <S.WrapperThree>
-                  <p>R$ 200,00</p>
+                  <p>{FormateValue(item.preco * item.quantidade)}</p>
                 </S.WrapperThree>
               </S.ProductCart>
             ))}
@@ -52,7 +58,7 @@ const Cart: React.FC = () => {
         <S.WrapperFinish>
           <div>
             <p>Total</p>
-            <p>R$ 300,00</p>
+            <p>{FormateValue(total)}</p>
           </div>
           <p>
             Todas as entregas possuem código de rastreio <IoMdHeart />{" "}

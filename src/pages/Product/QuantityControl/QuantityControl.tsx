@@ -1,10 +1,10 @@
 import * as S from "./Styles";
 import Input from "../../../Components/Input/Input";
-import { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { AuthCart } from "../../../context/Cart/CartContext";
 
 const QuantityControl = () => {
-  const [quantity, setQuantiTy] = useState<number>(1);
+  const { quantity, setQuantiTy } = AuthCart();
 
   return (
     <S.WrapperControl>

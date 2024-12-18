@@ -7,6 +7,7 @@ export type DadosProps = {
   preco: number;
   imagem: string[];
   sabores: string[];
+  quantidade: number;
 };
 
 const useRequest = (endPoint: string) => {

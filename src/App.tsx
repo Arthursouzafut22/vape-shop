@@ -1,6 +1,6 @@
 import { GlobalStyles } from "./GlobalStyles";
 import { Router } from "./Routes/Routes";
-import ShoppingCartContext from "./context/CartContext";
+import ShoppingCartContext from "./context/Cart/CartContext";
 
 function App() {
   return (
