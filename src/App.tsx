@@ -1,6 +1,7 @@
 import { GlobalStyles } from "./GlobalStyles";
 import { Router } from "./Routes/Routes";
 import ShoppingCartContext from "./context/Cart/CartContext";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <ShoppingCartContext>
         <GlobalStyles />
         <Router />
+        <Footer/>
       </ShoppingCartContext>
     </>
   );

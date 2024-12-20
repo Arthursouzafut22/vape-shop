@@ -5,87 +5,28 @@ export const Section = styled.section`
   margin: 20px auto auto auto;
   padding: 0.94rem;
 
-  h1 ~ span{
+  h1 ~ span {
     display: block;
     color: #677279;
     margin-top: 15px !important;
   }
 `;
 
-export const ContainerCart = styled.div`
+export const ContainerCart = styled.div<{ mobile: boolean }>`
   display: flex;
   align-items: start;
   justify-content: space-between;
-  gap: 15px;
+  flex-wrap: ${({ mobile }) => (mobile ? "wrap" : "initial")};
+  gap: 0.94rem;
   margin-top: 20px;
 `;
 
-export const WrapperCart = styled.div`
-  /* border: 2px solid red; */
-  flex: 2;
-  border-radius: 10px;
-  background-color: #ffffffff;
-
-  .body {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: red; */
-    padding: 0.94rem;
-    border-radius: 10px 10px 0px 0px;
-    border-bottom: 0.1px solid #677279;
-
-    span {
-      color: #677279;
-    }
-
-    div {
-      display: flex;
-      align-items: center;
-      gap: 130px;
-
-      span {
-        color: #677279;
-      }
-    }
-  }
-`;
-
-export const ProductCart = styled.div`
-  display: flex;
-  align-items: start;
-  gap: 10px;
-  justify-content: space-between;
-  margin-top: 20px;
-  padding: 0.94rem;
-`;
-
-export const WrapperOne = styled.div`
-  display: flex;
-  align-items: start;
-  gap: 7px;
-`;
-
-export const WrapperTwo = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  .button-remove {
-    display: block;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-  }
-`;
-
-export const WrapperThree = styled.div``;
-
-export const WrapperFinish = styled.div`
-  flex: 1;
+export const WrapperFinish = styled.div<{ mobile: boolean }>`
   background-color: #ffffffff;
   padding: 0.94rem;
-  border-radius: 10px;
+  border-radius: 0.63rem;
+  box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
+  width: ${({ mobile }) => (mobile ? "100%" : "50%")};
 
   div {
     display: flex;
@@ -93,12 +34,12 @@ export const WrapperFinish = styled.div`
     justify-content: space-between;
 
     p {
-      font-size: 22px;
+      font-size: 1.38rem;
       font-weight: 600;
     }
   }
 
- div ~ p {
+  div ~ p {
     margin-top: 10px;
     color: #677279;
   }
@@ -114,5 +55,50 @@ export const WrapperFinish = styled.div`
     color: #ffffff;
     cursor: pointer;
     margin-top: 10px;
+  }
+`;
+
+export const Cart = styled.div`
+  width: 100%;
+`;
+
+export const Product = styled.div<{ mobile: boolean }>`
+  display: flex;
+  align-items: start;
+  max-width: 100%;
+  flex: 1;
+  gap: 1.25rem;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 0.63rem;
+  box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
+  margin-bottom: 12px;
+
+  .wrapper-product {
+    .wrapper1 {
+      display: flex;
+      justify-content: space-between !important;
+      width: 100% !important;
+
+      div {
+        p:last-child {
+          margin-top: 4px;
+          margin-bottom: 6px;
+        }
+      }
+    }
+    .wrapper2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+
+      .button-remove {
+        display: block;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        color: #677279;
+      }
+    }
   }
 `;

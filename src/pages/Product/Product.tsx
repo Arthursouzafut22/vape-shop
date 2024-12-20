@@ -38,7 +38,7 @@ const Product = () => {
                   src={`${API_BASE_IMAGE + item}`}
                   alt={item}
                   key={index}
-                  style={{ border: boderColor ? "2px solid red" : "initial" }}
+                  style={{}}
                   onClick={(event) => replaceImage(event, index)}
                 />
               ))}
