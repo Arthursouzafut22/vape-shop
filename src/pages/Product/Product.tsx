@@ -28,7 +28,6 @@ const Product = () => {
           <Link to={"/liquidos"}>Liquidos</Link>
         </div>
       </S.WrapperLinks>
-
       <S.WrapperGlobal>
         <S.WrapperOne>
           <picture className="imgsProduct">
@@ -57,7 +56,7 @@ const Product = () => {
             <h1>{searchProduct?.nome}</h1>
             <p>{FormateValue(searchProduct?.preco)}</p>
             <span>Envio via Transportadora!</span>
-            <Icons id={searchProduct.id}/>
+            <Icons id={searchProduct.id} />
           </div>
 
           <div className={"div-two"}>

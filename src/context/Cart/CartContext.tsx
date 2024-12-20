@@ -9,6 +9,7 @@ import {
 import { DadosProps } from "../../Api/UseRequest";
 import { ContextProps } from "./Types";
 import { reduceCart, initialArray } from "./cartReducer";
+import { toast } from "react-toastify";
 
 const ContextCart = createContext<ContextProps | null>(null);
 
@@ -34,11 +35,13 @@ const ShoppingCartContext = ({ children }: PropsWithChildren) => {
       payload: product,
       quanti: quantity,
     });
+    toast.success(`Produto Adicionado Ao Carrinho.`);
   }
 
   //Remover produto do carrinho...
   function removeProduct(id: number) {
     dispatch({ type: "REMOVE_PRODUCT", id: id });
+    toast.error(`Produto Removido Do Carrinho.`);
   }
 
   //Atualizar valor da quantidade..
