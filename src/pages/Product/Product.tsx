@@ -4,16 +4,16 @@ import useRequest from "../../Api/UseRequest";
 import { Link } from "react-router-dom";
 import useImage from "./Utils";
 import { API_BASE_IMAGE } from "../../Api/baseUrl";
-import { IoStarSharp } from "react-icons/io5";
 import QuantityControl from "./QuantityControl/QuantityControl";
 import FormateValue from "../../Components/FormateValue/FormateValue";
 import { SlBadge } from "react-icons/sl";
 import { FaPix } from "react-icons/fa6";
 import { AuthCart } from "../../context/Cart/CartContext";
+import Icons from "./Icons";
 
 const Product = () => {
   const { dados } = useRequest("/products");
-  const { indexImg, replaceImage, boderColor } = useImage();
+  const { indexImg, replaceImage } = useImage();
   const { id } = useParams();
   const searchProduct = dados?.find((i) => i.id === Number(id));
   const { addProductCart } = AuthCart();
@@ -57,13 +57,7 @@ const Product = () => {
             <h1>{searchProduct?.nome}</h1>
             <p>{FormateValue(searchProduct?.preco)}</p>
             <span>Envio via Transportadora!</span>
-            <S.ContainerIcons>
-              {new Array(5)
-                .fill(<IoStarSharp style={{ color: "#FFA800" }} />)
-                .map((icon, index) => (
-                  <span key={index}>{icon}</span>
-                ))}
-            </S.ContainerIcons>
+            <Icons id={searchProduct.id}/>
           </div>
 
           <div className={"div-two"}>

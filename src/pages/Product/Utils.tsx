@@ -17,24 +17,17 @@ const useImage = () => {
 
   const replaceImage = useCallback((event: ClickHandler, index: number) => {
     event?.preventDefault();
-    const element = event?.target;
+    // const element = event?.target as HTMLElement;
     setIndexImg(index);
-    console.log(element)
-
-    if(element) {
-      // // setBoderColor(true)
-      // element.style.border = "none"
-      //  element.style.border = "2px solid red"
-
-      // element.classList.toggle("ativo");
-
-      
+    if(index === 0 ) {
+      setBoderColor(true)
+      setBoderColor(false)
+    }else if(index === 1){
+      setBoderColor(true);
     }
     
-    // if(!element !== element) {
-    //   element.classList.remove("ativo");
 
-    // }
+    
 
 
   }, []);

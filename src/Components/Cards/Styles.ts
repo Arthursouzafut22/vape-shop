@@ -18,6 +18,18 @@ export const Card = styled.div`
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
+  .off {
+    font-size: 12px;
+    font-weight: 600;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 6px 2px;
+    display: block;
+    text-align: center;
+    max-width: 80px;
+    border-radius: 5px;
+  }
+
   img {
     display: block;
     max-width: 100%;
@@ -57,7 +69,7 @@ type TextProps = {
 
 export const Text = styled.p<TextProps>`
   font-size: ${({ size }) => (size ? "21px" : "16px")};
-  font-weight: ${({ weigth }) => (weigth ? weigth : "normal")};
+  font-weight: ${({ weigth }) => (weigth ? weigth : "500")};
   color: ${({ color }) => (color ? color : "#000000")};
   text-align: left;
   margin-top: ${({ top }) => (top ? top + "px" : "6px")} !important;

@@ -153,7 +153,8 @@ export const WrapperTwo = styled.div`
 `;
 
 export const ContainerIcons = styled.div`
-  margin: 10px 0px;
+  ${flexItems};
+  gap: 0.19rem;
 
   span {
     font-size: 1.38rem;
