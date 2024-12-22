@@ -64,6 +64,7 @@ export const WrapperOne = styled.div`
   flex: 1;
   padding-inline: 0.94rem;
   width: 100%;
+  border-radius: 10px;
 
   @media screen and (max-width: 1039px) {
     flex-wrap: wrap;
@@ -109,6 +110,7 @@ export const WrapperTwo = styled.div`
   padding-block: 0.94rem;
   flex: 1;
   width: 100%;
+  border-radius: 10px;
 
   .div-one {
     h1 {

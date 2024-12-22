@@ -17,12 +17,9 @@ const Cards = ({ item }: { item: DadosProps }) => {
         {item.imagem && (
           <img src={`${API_BASE_IMAGE}${item.imagem[0]}`} alt={item.nome} />
         )}
-        <S.Text top={"12"}>{item.nome}</S.Text>
+        <S.TextName>{item.nome}</S.TextName>
         <Icons id={item.id} />
-        <S.Text size={"15"} color={"#078407"} weigth={"600"}>
-          {FormateValue(item.preco)}{" "}
-          <span style={{ fontSize: "13px" }}>via Pix</span>
-        </S.Text>
+        <S.TextPrice>{FormateValue(item.preco)}</S.TextPrice>
         <div style={{ marginTop: "50px" }}></div>
         <S.ImgFreight src={Freight} alt="frete" ref={refImg} />
         <button ref={refButton}>Ver Produto</button>

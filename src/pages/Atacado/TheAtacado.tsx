@@ -1,21 +1,18 @@
 import * as S from "./Styles";
 import useRequest from "../../Api/UseRequest";
 import Cards from "../../Components/Cards/Cards";
-import { Suspense } from "react";
+
+import Spinner from "../../Components/Spinner/Spinner";
 
 const Atacado: React.FC = () => {
-  const { dados } = useRequest("/atacado");
+  const { dados, isLoading } = useRequest("/atacado");
 
   return (
     <S.Section>
       <h2>📦Atacado📦</h2>
+      {isLoading && <Spinner />}
       <S.Wrapper>
-        {dados &&
-          dados.map((item) => (
-            <Suspense fallback={<p>Carregando...</p>}>
-              <Cards key={item.id} item={item} />
-            </Suspense>
-          ))}
+        {dados && dados.map((item) => <Cards key={item.id} item={item} />)}
       </S.Wrapper>
     </S.Section>
   );

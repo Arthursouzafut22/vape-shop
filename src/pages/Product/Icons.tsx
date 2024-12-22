@@ -9,7 +9,7 @@ const Icons = ({ id }: { id?: number }) => {
 
   useEffect(() => {
     if (pathname !== `/product/${id}`) {
-      const styleMargin: CSSProperties = { margin: "5px 0px 0px 0px" };
+      const styleMargin: CSSProperties = { margin: "2px 0px 0px 0px" };
       setMargin(styleMargin);
     }
     if (pathname === `/product/${id}`) {
@@ -27,7 +27,7 @@ const Icons = ({ id }: { id?: number }) => {
               color: "#FFA800",
               fontSize:
                 pathname !== `/product/${id}`
-                  ? " 1.0rem"
+                  ? "clamp(0.81rem,4vw,1.0rem)"
                   : pathname === `/product/${id}`
                   ? "1.38rem"
                   : "",

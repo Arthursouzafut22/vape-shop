@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
   max-width: 280px;
   padding: 1.25rem;
   background-color: #ffffff;
@@ -13,21 +9,33 @@ export const Card = styled.div`
   overflow: hidden;
   position: relative;
   transition: box-shadow 0.3s ease;
+  position: relative;
+  height: auto;
+  overflow: hidden;
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+  }
+
   .off {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 600;
     background-color: #000000;
     color: #ffffff;
-    padding: 6px 2px;
+    padding: 6px 5px;
     display: block;
     text-align: center;
-    max-width: 80px;
-    border-radius: 5px;
+    max-width: 70px;
+    border-radius: 0.31rem;
+    position: absolute;
+    top: 10px;
   }
 
   img {
@@ -60,21 +68,6 @@ export const Card = styled.div`
   }
 `;
 
-type TextProps = {
-  size?: string;
-  color?: string;
-  weigth?: string;
-  top?: string;
-};
-
-export const Text = styled.p<TextProps>`
-  font-size: ${({ size }) => (size ? "21px" : "16px")};
-  font-weight: ${({ weigth }) => (weigth ? weigth : "500")};
-  color: ${({ color }) => (color ? color : "#000000")};
-  text-align: left;
-  margin-top: ${({ top }) => (top ? top + "px" : "6px")} !important;
-`;
-
 export const ImgFreight = styled.img`
   max-width: 100%;
   display: block;
@@ -87,4 +80,29 @@ export const ImgFreight = styled.img`
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.3s ease, transform 0.3s ease;
+`;
+
+export const TextName = styled.p`
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000000;
+  text-align: left;
+  margin: 0;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+`;
+
+export const TextPrice = styled.p`
+  font-size: 1.31rem;
+  color: #078407;
+  font-weight: 600;
+  text-align: left;
+  margin: 0;
 `;

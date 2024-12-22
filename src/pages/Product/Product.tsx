@@ -10,6 +10,7 @@ import { SlBadge } from "react-icons/sl";
 import { FaPix } from "react-icons/fa6";
 import { AuthCart } from "../../context/Cart/CartContext";
 import Icons from "./Icons";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const Product = () => {
   const { dados } = useRequest("/products");
@@ -17,7 +18,7 @@ const Product = () => {
   const { id } = useParams();
   const searchProduct = dados?.find((i) => i.id === Number(id));
   const { addProductCart } = AuthCart();
-  if (!searchProduct) return null;
+  if (!searchProduct) return <Spinner />;
 
   return (
     <S.Section>
@@ -31,7 +32,8 @@ const Product = () => {
       <S.WrapperGlobal>
         <S.WrapperOne>
           <picture className="imgsProduct">
-            {searchProduct?.imagem &&
+            {searchProduct &&
+              searchProduct?.imagem &&
               searchProduct?.imagem.map((item, index) => (
                 <img
                   src={`${API_BASE_IMAGE + item}`}

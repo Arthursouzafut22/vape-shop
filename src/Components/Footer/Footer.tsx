@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="filho-2">
           <h3>PAGAMENTO</h3>
           <p>
-            Meu sistema de pagamento online é operado por uma empresa
+            Nosso sistema de pagamento online é operado por uma empresa
             especializada em segurança de pagamento online. Para mais
             informações, vá para a seção "Pagamento" dentro de "Perguntas
             Frequentes".
