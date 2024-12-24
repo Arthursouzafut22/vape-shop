@@ -9,14 +9,17 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 body{
-    font-family: "Roboto", serif;
+    /* font-family: "Roboto", serif; */
+    font-family: "Poppins", serif;
     overflow-x:hidden;
     background-color: #F9F9F9;
 }
 
 
 body * {
-    font-family: "Roboto", serif;
+    /* font-family: "Roboto", serif; */
+    font-family: "Poppins", serif;
+    
 }
 
 a{

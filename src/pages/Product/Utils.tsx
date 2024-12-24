@@ -10,33 +10,23 @@ const useImage = () => {
   const [indexImg, setIndexImg] = useState<number>(0);
   const refImage = useRef<HTMLImageElement | null>(null);
 
-  
-  
-
-
-
   const replaceImage = useCallback((event: ClickHandler, index: number) => {
     event?.preventDefault();
     // const element = event?.target as HTMLElement;
     setIndexImg(index);
-    if(index === 0 ) {
-      setBoderColor(true)
-      setBoderColor(false)
-    }else if(index === 1){
+    if (index === 0) {
+      setBoderColor(true);
+      setBoderColor(false);
+    } else if (index === 1) {
       setBoderColor(true);
     }
-    
-
-    
-
-
   }, []);
 
   return {
     replaceImage,
     indexImg,
     refImage,
-    boderColor
+    boderColor,
   };
 };
 

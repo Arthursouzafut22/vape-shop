@@ -7,7 +7,7 @@ const Spinner = () => {
         display: "flex",
         justifyContent: "center",
         flex: "1",
-        height: "60vh",
+        height: "50vh",
       }}
     >
       <S.Svg viewBox="25 25 50 50" className="container">
