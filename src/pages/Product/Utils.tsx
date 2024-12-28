@@ -12,13 +12,20 @@ const useImage = () => {
 
   const replaceImage = useCallback((event: ClickHandler, index: number) => {
     event?.preventDefault();
-    // const element = event?.target as HTMLElement;
     setIndexImg(index);
-    if (index === 0) {
-      setBoderColor(true);
-      setBoderColor(false);
-    } else if (index === 1) {
-      setBoderColor(true);
+    const element = event?.target as HTMLElement;
+    switch (index) {
+      case 0: {
+        element.style.border = "2px solid red";
+        break;
+      }
+      case 1: {
+        element.style.border = "2px solid red";
+        break
+      }
+      default: {
+        element.style.border = "none";
+      }
     }
   }, []);
 

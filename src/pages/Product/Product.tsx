@@ -11,6 +11,7 @@ import { FaPix } from "react-icons/fa6";
 import { AuthCart } from "../../context/Cart/CartContext";
 import Icons from "./Icons";
 import Spinner from "../../Components/Spinner/Spinner";
+import { useEffect } from "react";
 
 const Product = () => {
   const { dados } = useRequest("/products");
@@ -18,6 +19,10 @@ const Product = () => {
   const { id } = useParams();
   const searchProduct = dados?.find((i) => i.id === Number(id));
   const { addProductCart } = AuthCart();
+
+  useEffect(() => {
+    window.scrollTo({ behavior: "auto", top: 0 });
+  }, []);
   if (!searchProduct) return <Spinner />;
 
   return (

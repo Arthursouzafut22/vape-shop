@@ -1,5 +1,5 @@
 import * as S from "./Styles";
-import { DadosProps } from "../../Api/UseRequest";
+import { DadosProps } from "../../Api/Types";
 import { API_BASE_IMAGE } from "../../Api/baseUrl";
 import FormateValue from "../FormateValue/FormateValue";
 import Freight from "../../assets/image/frete_gratis.webp";

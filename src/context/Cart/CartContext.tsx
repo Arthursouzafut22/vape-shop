@@ -6,15 +6,15 @@ import {
   useReducer,
   useState,
 } from "react";
-import { DadosProps } from "../../Api/UseRequest";
+import { DadosProps } from "../../Api/Types";
 import { ContextProps } from "./Types";
-import { reduceCart, initialArray } from "./cartReducer";
+import { reduceCart, initialArray, cartInitial } from "./cartReducer";
 import { toast } from "react-toastify";
 
 const ContextCart = createContext<ContextProps | null>(null);
 
 const ShoppingCartContext = ({ children }: PropsWithChildren) => {
-  const [state, dispatch] = useReducer(reduceCart, initialArray);
+  const [state, dispatch] = useReducer(reduceCart, initialArray, cartInitial);
   const [total, setTotal] = useState<number>(0);
   const [quantity, setQuantiTy] = useState<number>(1);
 
@@ -37,6 +37,10 @@ const ShoppingCartContext = ({ children }: PropsWithChildren) => {
     });
     toast.success(`Produto Adicionado Ao Carrinho.`);
   }
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state));
+  }, [state]);
 
   //Remover produto do carrinho...
   function removeProduct(id: number) {

@@ -14,7 +14,7 @@ export const WrapperSlide = styled.div`
     text-align: center;
     border-bottom: 3px solid  #2f982f;
     margin:  0 auto;
-    max-width: 220px;
+    max-width: 225px;
   }
 
   .wrapper {

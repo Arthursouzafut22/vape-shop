@@ -1,7 +1,12 @@
-import { DadosProps } from "../../Api/UseRequest";
+import { DadosProps } from "../../Api/Types";
 import { Action } from "./Types";
 
 export const initialArray: DadosProps[] = [];
+
+export const cartInitial = () => {
+  const item = localStorage.getItem("cart");
+  return item ? JSON.parse(item) : [];
+};
 
 export function reduceCart(state: DadosProps[], action: Action): DadosProps[] {
   switch (action.type) {

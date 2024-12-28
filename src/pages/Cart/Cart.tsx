@@ -8,7 +8,7 @@ import QuantityControlCart from "../Product/QuantityControl/QuantityControlCart"
 import UseMedia from "../../Hooks/UseMedia";
 
 const Cart: React.FC = () => {
-  const { state, total, removeProduct } = AuthCart();
+  const { state, removeProduct, total } = AuthCart();
   const { mobile } = UseMedia("(max-width:981px)");
 
   return (

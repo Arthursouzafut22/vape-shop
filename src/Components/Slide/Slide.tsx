@@ -8,7 +8,9 @@ import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
 const Slide: React.FC = () => {
   const { dados } = useRequest("/vendidos");
   const divRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState<number>();
+  const [width, setWidth] = useState<number>(0);
+  const [activeNext, setActiveNext] = useState(true);
+  const [activePrev, setActivePrev] = useState(false);
 
   useEffect(() => {
     if (!divRef.current) throw new Error("Error!");
@@ -21,11 +23,15 @@ const Slide: React.FC = () => {
     if (!divRef.current) return null;
     divRef.current.style.transform = `translateX(-${width}px)`;
     divRef.current.style.transition = `0.5s ease-in-out`;
+    setActivePrev(true);
+    setActiveNext(false);
   }
 
   function prev() {
     if (!divRef.current) return null;
     divRef.current.style.transform = `translateX(-${0}px)`;
+    setActivePrev(false);
+    setActiveNext(true);
   }
 
   return (
@@ -33,16 +39,21 @@ const Slide: React.FC = () => {
       <h2>MAIS VENDIDOS</h2>
 
       <div className="wrapper" ref={divRef}>
-        {dados && dados.map((item) => <Cards item={item} key={item.id} />)}
+        {dados &&
+          dados.produtos.map((item) => <Cards item={item} key={item.id} />)}
       </div>
-      
-      <S.ButtonPrev onClick={prev}>
-        <GrCaretPrevious />
-      </S.ButtonPrev>
 
-      <S.ButtonNext onClick={next}>
-        <GrCaretNext />
-      </S.ButtonNext>
+      {activePrev && (
+        <S.ButtonPrev onClick={prev}>
+          <GrCaretPrevious />
+        </S.ButtonPrev>
+      )}
+
+      {activeNext && (
+        <S.ButtonNext onClick={next}>
+          <GrCaretNext />
+        </S.ButtonNext>
+      )}
     </S.WrapperSlide>
   );
 };
