@@ -10,11 +10,11 @@ export const WrapperSlide = styled.div`
 
   h2 {
     font-weight: 600;
-    padding: 0.19rem 0.94rem;
     text-align: center;
-    border-bottom: 3px solid  #2f982f;
     margin:  0 auto;
     max-width: 225px;
+    border-bottom: 3px solid  #2f982f;
+    padding: 0.19rem 0.94rem;
   }
 
   .wrapper {
@@ -28,7 +28,7 @@ export const WrapperSlide = styled.div`
 `;
 
 export const ButtonNext = styled.button`
-  font-size: 20px;
+  font-size: 1.25rem;
   text-align: right;
   display: flex;
   align-items: center;
@@ -36,7 +36,7 @@ export const ButtonNext = styled.button`
   font-weight: 600;
   background-color: #2f982f;
   color: #ffffff;
-  padding: 10px;
+  padding: 0.625rem;
   border-radius: 50%;
   margin: 0 auto;
   width: 45px;

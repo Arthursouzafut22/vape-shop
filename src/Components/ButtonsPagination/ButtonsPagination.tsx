@@ -6,18 +6,21 @@ import {
 } from "react-icons/md";
 
 const ButtonsPagination = () => {
-  const numbersPage = [1, 2, 3];
+  const numbersPage = [1, 2];
   const { replacePage, nextPage, prevPage, activePrev, activeNext } =
     AuthPage();
 
   return (
     <S.WrapperButtons>
-      {activePrev && (
-        <button className="back" onClick={prevPage}>
-          <MdOutlineArrowBackIos /> Anterior
-        </button>
-      )}
-      <div>
+      <button
+        className="back"
+        onClick={prevPage}
+        style={{ visibility: activePrev ? "visible" : "hidden" }}
+      >
+        <MdOutlineArrowBackIos /> Anterior
+      </button>
+
+      <div className="btns-page">
         {numbersPage &&
           numbersPage.map((button) => (
             <S.ButtonPage key={button} onClick={replacePage}>
@@ -25,11 +28,14 @@ const ButtonsPagination = () => {
             </S.ButtonPage>
           ))}
       </div>
-      {activeNext && (
-        <button className="next" onClick={nextPage}>
-          Próximo <MdOutlineArrowForwardIos />
-        </button>
-      )}
+
+      <button
+        className="next"
+        onClick={nextPage}
+        style={{ visibility: activeNext ? "visible" : "hidden" }}
+      >
+        Próximo <MdOutlineArrowForwardIos />
+      </button>
     </S.WrapperButtons>
   );
 };

@@ -7,7 +7,7 @@ import ButtonsPagination from "../../Components/ButtonsPagination/ButtonsPaginat
 
 const Liquidos = () => {
   const { page } = AuthPage();
-  const { dados, isLoading } = useRequest(`/liquido?page=${page}&limit=8`);
+  const { dados, isLoading } = useRequest(`/liquido?page=${page}&limit=12`);
 
   return (
     <S.Section>

@@ -1,41 +1,42 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const flexItems = css`
+  display: flex;
+  align-items: center;
+`;
 
 export const WrapperButtons = styled.div`
- display: flex;
- justify-content: center;
- align-items: center;
- gap: 20px;
- margin-top: 30px;
+  ${flexItems};
+  justify-content: space-between;
+  gap: 0.625rem;
+  margin-top: 30px;
+  padding: 0.19rem 0.94rem;
 
- .back,.next{
-    font-size: 14px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
+  .back,
+  .next {
+    ${flexItems};
+    font-size: 0.875rem;
+    font-weight: 600;
     cursor: pointer;
- }
+    background-color: transparent;
+    border: none;
+  }
 
-
-
- div{
-    display: flex;
-    align-items: center;
-    gap: 8px;
- }
-
-
+  .btns-page {
+    ${flexItems};
+    justify-content: center;
+    gap: 0.5rem;
+  }
 `;
 
 export const ButtonPage = styled.button`
- font-size: 1rem;
-    display: block;
-    padding: 3px;
-    width: 30px;
-    cursor: pointer;
-    border-radius: 8px;
-    border: none;
-    color: #ffffff;
-    background-color: #2f982f;
-
-
+  font-size: 1rem;
+  display: block;
+  padding: 0.1875rem;
+  width: 30px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: none;
+  color: #ffffff;
+  background-color: #2f982f;
 `;

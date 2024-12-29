@@ -4,10 +4,11 @@ import Cards from "../../Components/Cards/Cards";
 import Spinner from "../../Components/Spinner/Spinner";
 import { AuthPage } from "../../context/ContextPage/ContextPage";
 import ButtonsPagination from "../../Components/ButtonsPagination/ButtonsPagination";
+import Slide from "../../Components/Slide/Slide";
 
 const Atacado: React.FC = () => {
   const { page } = AuthPage();
-  const { dados, isLoading } = useRequest(`/atacado?page=${page}&limit=8`);
+  const { dados, isLoading } = useRequest(`/atacado?page=${page}&limit=12`);
 
   return (
     <S.Section>
@@ -17,6 +18,7 @@ const Atacado: React.FC = () => {
         {dados &&
           dados.produtos.map((item) => <Cards key={item.id} item={item} />)}
       </S.Wrapper>
+      <Slide />
       <ButtonsPagination />
     </S.Section>
   );
