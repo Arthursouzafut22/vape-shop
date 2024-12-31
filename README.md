@@ -20,7 +20,7 @@ Vape Shop é um projeto de e-commerce desenvolvido para a comercialização de v
 ## Integração de Pagamentos
 • Implementação de um sistema de pagamento integrado para permitir transações seguras.                                 
 
-## Integração de Pagamentos    
+## Funcionalidades
 • Catálogo de produtos com descrição detalhada.                                        
 • Adição de itens ao carrinho de compras.                                             
 • Finalização de pedidos com integração de pagamento.                                                           
