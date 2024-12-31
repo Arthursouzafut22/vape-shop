@@ -1,50 +1,36 @@
-# React + TypeScript + Vite
+# Vape Shop
+![vap11](https://github.com/user-attachments/assets/d9650bb0-a9ed-425f-aaa7-38af86202efa)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛒 Introdução
+Vape Shop é um projeto de e-commerce desenvolvido para a comercialização de vapers e cigarros eletrônicos. A aplicação oferece uma experiência completa, desde a navegação e visualização de produtos até a realização de pagamentos integrados, proporcionando uma solução moderna e funcional para compras online.
 
-Currently, two official plugins are available:
+# Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Front-end
+• React                                          
+• TypeScript                                   
+• Styled Components                       
 
-## Expanding the ESLint configuration
+## Back-end
+• Node.js com Express: Criação de uma API REST para gerenciar a lógica de negócio e comunicação com o banco de dados.                            
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Banco de Dados
+• MySQL: Utilizado para armazenamento dos produtos e informações relacionadas ao e-commerce.                       
 
-- Configure the top-level `parserOptions` property like this:
+## Integração de Pagamentos
+• mplementação de um sistema de pagamento integrado para permitir transações seguras.                                 
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Integração de Pagamentos    
+• Catálogo de produtos com descrição detalhada.                                        
+• Adição de itens ao carrinho de compras.                                             
+• Finalização de pedidos com integração de pagamento.                                                           
+• Armazenamento e gerenciamento dos produtos via banco de dados.                                                           
+• Paginaçaão          
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+
+
+
+
