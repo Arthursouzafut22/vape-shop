@@ -1,10 +1,5 @@
-import { useState, useEffect, ReactNode } from "react";
-
-type ImageProps = {
-  src: string;
-  alt: string;
-  fallback: ReactNode;
-};
+import { useState, useEffect } from "react";
+import { ImageProps } from "./Types";
 
 const OptimizedImage: React.FC<ImageProps> = ({ src, alt, fallback }) => {
   const [loaded, setLoaded] = useState<boolean>(false);

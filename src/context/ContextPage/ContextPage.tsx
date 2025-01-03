@@ -4,8 +4,10 @@ import {
   useContext,
   useState,
   useCallback,
+  useEffect,
 } from "react";
 import { ContextProps } from "./Types";
+import { CSSProperties } from "styled-components";
 
 const UsePageContext = createContext<ContextProps | null>(null);
 
@@ -19,6 +21,7 @@ const PageContext = ({ children }: PropsWithChildren) => {
   const [page, setPage] = useState<number>(1);
   const [activePrev, setActivePrev] = useState(false);
   const [activeNext, setActiveNext] = useState(true);
+
 
   function scrollTop() {
     setTimeout(() => {
@@ -42,6 +45,14 @@ const PageContext = ({ children }: PropsWithChildren) => {
       setPage(Number(element.innerText));
       checkActiveButton(element.innerText);
       scrollTop();
+
+      if (element.innerText === "1") {
+        element.style.background = "#2f982f";
+      } else if (element.innerText === "2") {
+        element.style.background = "initial";
+      } else {
+        element.style.background = "initial";
+      }
     },
     []
   );
@@ -64,7 +75,15 @@ const PageContext = ({ children }: PropsWithChildren) => {
 
   return (
     <UsePageContext.Provider
-      value={{ page, replacePage, nextPage, prevPage, activePrev, activeNext }}
+      value={{
+        setPage,
+        page,
+        replacePage,
+        nextPage,
+        prevPage,
+        activePrev,
+        activeNext,
+      }}
     >
       {children}
     </UsePageContext.Provider>

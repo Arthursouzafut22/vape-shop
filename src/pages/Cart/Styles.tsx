@@ -4,6 +4,7 @@ export const Section = styled.section`
   max-width: 1200px;
   margin: 20px auto auto auto;
   padding: 0.94rem;
+  height: 80vh;
 
   h1 ~ span {
     display: block;
@@ -19,6 +20,13 @@ export const ContainerCart = styled.div<{ mobile: boolean }>`
   flex-wrap: ${({ mobile }) => (mobile ? "wrap" : "initial")};
   gap: 0.94rem;
   margin-top: 20px;
+
+   .p{
+    font-size: 18px;
+    text-align: center !important;
+    font-weight:bold;
+    margin:  0 auto;
+  }
 `;
 
 export const WrapperFinish = styled.div<{ mobile: boolean }>`

@@ -104,6 +104,7 @@ export const WrapperInputs = styled.div`
 
     &:focus {
       outline: 2px solid #2f982f;
+      border:1px solid transparent;
     }
   }
 `;

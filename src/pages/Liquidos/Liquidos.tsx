@@ -1,4 +1,5 @@
 import * as S from "./Styles";
+import { useEffect } from "react";
 import useRequest from "../../Api/UseRequest";
 import Cards from "../../Components/Cards/Cards";
 import Spinner from "../../Components/Spinner/Spinner";
@@ -6,8 +7,12 @@ import { AuthPage } from "../../context/ContextPage/ContextPage";
 import ButtonsPagination from "../../Components/ButtonsPagination/ButtonsPagination";
 
 const Liquidos = () => {
-  const { page } = AuthPage();
+  const { page, setPage } = AuthPage();
   const { dados, isLoading } = useRequest(`/liquido?page=${page}&limit=12`);
+
+  useEffect(() => {
+    setPage(1);
+  }, [setPage]);
 
   return (
     <S.Section>
