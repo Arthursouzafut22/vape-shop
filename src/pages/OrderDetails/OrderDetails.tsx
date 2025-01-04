@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { validationSchema } from "./Schema";
 import { InputsProps } from "./Types";
 import WrapperCep from "./WrapperCep/WrapperCep";
+import WrapperCart from "./WrapperCart/WrapperCart";
 
 const OrderDetails = () => {
   const {
@@ -64,6 +65,7 @@ const OrderDetails = () => {
         <WrapperCep register={register} errors={errors} />
         <button>bvv</button>
       </form>
+      <WrapperCart/>
     </S.Section>
   );
 };

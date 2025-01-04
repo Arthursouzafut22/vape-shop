@@ -17,6 +17,7 @@ const WrapperCep = ({ register, errors }: UiCepProps) => {
         <div>
           <Input
             {...register("endereco")}
+            type="text"
             label="Endereço"
             placeholder="Rua, Avenida, Alameda"
           />
@@ -25,9 +26,9 @@ const WrapperCep = ({ register, errors }: UiCepProps) => {
         <div>
           <Input
             {...register("numero")}
+            type="number"
             label="Número"
             placeholder="3212"
-            type="number"
           />
           {errors.numero && <p>{errors.numero.message}</p>}
         </div>
@@ -37,17 +38,32 @@ const WrapperCep = ({ register, errors }: UiCepProps) => {
           <Input label="Complemento" placeholder="Casa, Apartamento..." />
         </div>
         <div>
-          <Input {...register("bairro")} label="Bairro" placeholder="Centro" />
+          <Input
+            {...register("bairro")}
+            type="text"
+            label="Bairro"
+            placeholder="Centro"
+          />
           {errors.bairro && <p>{errors.bairro.message}</p>}
         </div>
       </S.WrapeprInputs>
       <S.WrapeprInputs>
         <div>
-          <Input {...register("cidade")} label="Cidade" placeholder="Cidade" />
+          <Input
+            {...register("cidade")}
+            type="text"
+            label="Cidade"
+            placeholder="Cidade"
+          />
           {errors.cidade && <p>{errors.cidade.message}</p>}
         </div>
         <div>
-          <Input {...register("estado")} label="Estado" placeholder="Estado" />
+          <Input
+            {...register("estado")}
+            type="text"
+            label="Estado"
+            placeholder="Estado"
+          />
           {errors.estado && <p>{errors.estado.message}</p>}
         </div>
       </S.WrapeprInputs>

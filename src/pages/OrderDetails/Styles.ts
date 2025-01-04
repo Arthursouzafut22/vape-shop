@@ -1,23 +1,36 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const whiteColor = "#ffffff";
+
+const flexItem = css`
+  display: flex;
+  align-items: center;
+`;
 
 export const Section = styled.section`
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 3.13rem;
   max-width: 1000px;
   margin: 20px auto auto auto;
-  padding: 0.94rem;
-  border: 1px solid;
+  padding: 0.94rem 1.56rem;
+
+  @media screen and (max-width: 940px) {
+    flex-wrap: wrap-reverse;
+  }
 
   form {
-    max-width: 580px;
-    border: 1px solid;
+    width: 100%;
 
     input {
-      font-size: 16px;
-      width: 100% !important;
+      font-size: 1rem;
       display: block;
-      padding: 6px 10px;
-      border-radius: 8px;
+      padding: 0.38rem 0.63rem;
+      border-radius: 0.5rem;
       border: 1px solid #dddddd;
       outline: 1px solid transparent;
+      width: 100% !important;
 
       &:focus {
         outline: 2px solid #2f982f;
@@ -30,26 +43,29 @@ export const Section = styled.section`
 export const WrapperOne = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  background-color: #ffffff;
-  padding: 25px;
+  justify-content: space-between;
+  gap: 0.38rem;
+  background-color: ${whiteColor};
+  padding: 1.56rem;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 
   .filho-1 {
-    display: flex;
-    align-items: center;
+    ${flexItem};
     justify-content: center;
-    /* flex-wrap: wrap; */
     width: 100%;
-    gap: 20px;
+    gap: 1.25rem;
+
+    @media screen and (max-width: 467px) {
+      flex-wrap: wrap;
+      gap: 0.63rem;
+    }
 
     div {
       width: 100%;
 
       p {
-        font-size: 12px;
+        font-size: 0.75rem;
         color: red;
       }
     }
@@ -61,9 +77,10 @@ export const WrapperOne = styled.div`
 `;
 
 export const WrapperTwo = styled.div`
-  background-color: #ffffff;
+  background-color: ${whiteColor};
   margin-top: 20px;
-  padding: 25px;
+  padding: 1.56rem;
+  border-radius: 0.5rem;
 
   b {
     display: block;
@@ -71,16 +88,32 @@ export const WrapperTwo = styled.div`
   }
 
   p {
-    font-size: 12px;
+    font-size: 0.75rem;
     color: red;
   }
 `;
 
 export const WrapeprInputs = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  border-radius: 8px;
+  ${flexItem}
+  gap:  1.25rem;
+  border-radius: 0.5rem;
+
+  input {
+    margin-bottom: 5px;
+  }
+
+  @media screen and (max-width: 467px) {
+    flex-wrap: wrap;
+    gap: 0.31rem;
+
+    input {
+      margin: 0;
+    }
+
+    label {
+      font-size: 0.88rem;
+    }
+  }
 
   div {
     width: 100%;
