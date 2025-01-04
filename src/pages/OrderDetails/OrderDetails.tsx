@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { validationSchema } from "./Schema";
 import { InputsProps } from "./Types";
+import WrapperCep from "./WrapperCep/WrapperCep";
 
 const OrderDetails = () => {
   const {
@@ -60,6 +61,7 @@ const OrderDetails = () => {
             </div>
           </div>
         </S.WrapperOne>
+        <WrapperCep register={register} errors={errors} />
         <button>bvv</button>
       </form>
     </S.Section>

@@ -19,4 +19,14 @@ export const validationSchema = yup.object({
       const cleanedValue = value.replace(/[\s.-/]/g, "");
       return cpf.isValid(cleanedValue) || cnpj.isValid(cleanedValue);
     }),
+  cep: yup
+    .string()
+    .required("Informe CEP válido")
+    .matches(/^\d{5}-?\d{3}$/, "Digite um CEP válido")
+    .length(8, "O CEP deve ter 8 dígitos"),
+  endereco: yup.string().required("O endereço é obrigatório"),
+  numero: yup.string().required("O Número é obrigatório"),
+  bairro: yup.string().required("O Bairro é obrigatório"),
+  cidade: yup.string().required("A Cidade é obrigatório"),
+  estado: yup.string().required("o Estado é obrigatório"),
 });
