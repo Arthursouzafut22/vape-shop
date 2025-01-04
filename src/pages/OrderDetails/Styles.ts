@@ -23,7 +23,7 @@ export const Section = styled.section`
   form {
     width: 100%;
 
-    input {
+    input:not(input[type="radio"]) {
       font-size: 1rem;
       display: block;
       padding: 0.38rem 0.63rem;
@@ -37,6 +37,15 @@ export const Section = styled.section`
         border: 1px solid transparent;
       }
     }
+
+    input[type="radio"] {
+      border: 2px solid red;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+    }
   }
 `;
 
@@ -49,6 +58,7 @@ export const WrapperOne = styled.div`
   padding: 1.56rem;
   width: 100%;
   border-radius: 0.5rem;
+  box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
 
   .filho-1 {
     ${flexItem};
@@ -81,6 +91,7 @@ export const WrapperTwo = styled.div`
   margin-top: 20px;
   padding: 1.56rem;
   border-radius: 0.5rem;
+  box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
 
   b {
     display: block;
@@ -97,10 +108,7 @@ export const WrapeprInputs = styled.div`
   ${flexItem}
   gap:  1.25rem;
   border-radius: 0.5rem;
-
-  input {
-    margin-bottom: 5px;
-  }
+  margin-bottom: 6px;
 
   @media screen and (max-width: 467px) {
     flex-wrap: wrap;

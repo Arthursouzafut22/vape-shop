@@ -6,6 +6,7 @@ import { validationSchema } from "./Schema";
 import { InputsProps } from "./Types";
 import WrapperCep from "./WrapperCep/WrapperCep";
 import WrapperCart from "./WrapperCart/WrapperCart";
+import WrapperPix from "./WrapperPix/WrapperPix";
 
 const OrderDetails = () => {
   const {
@@ -63,9 +64,9 @@ const OrderDetails = () => {
           </div>
         </S.WrapperOne>
         <WrapperCep register={register} errors={errors} />
-        <button>bvv</button>
+        <WrapperPix/>
       </form>
-      <WrapperCart/>
+      <WrapperCart />
     </S.Section>
   );
 };

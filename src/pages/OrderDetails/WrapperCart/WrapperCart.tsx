@@ -2,9 +2,11 @@ import * as S from "./Styles";
 import { AuthCart } from "../../../context/Cart/CartContext";
 import { API_BASE_IMAGE } from "../../../Api/baseUrl";
 import FormateValue from "../../../Components/FormateValue/FormateValue";
+import { AuthFrete } from "../../../context/ContextFrete/ContextFrete";
 
 const WrapperCart = () => {
   const { state, total } = AuthCart();
+  const { selectedFrete } = AuthFrete();
 
   return (
     <S.WrapperCart>
@@ -24,7 +26,7 @@ const WrapperCart = () => {
         ))}
       <div className="total">
         <p>Total</p>
-        <span>{FormateValue(total)}</span>
+        <span>{FormateValue(total + selectedFrete.valor)}</span>
       </div>
     </S.WrapperCart>
   );

@@ -21,6 +21,7 @@ export const WrapperCart = styled.div`
   padding: 0.94rem;
   border-radius: 0.5rem;
   width: 100%;
+  box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
 
   b {
     margin-bottom: 6px;
@@ -40,7 +41,7 @@ export const WrapperCart = styled.div`
 export const Product = styled.div`
   ${flexItem};
   justify-content: space-between;
-  gap: 5px;
+  gap: 0.31rem;
   width: 100%;
   margin-bottom: 8px;
 
