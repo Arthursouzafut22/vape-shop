@@ -13,8 +13,8 @@ const useCep = () => {
       const jsonCep = (await resCep.json()) as CepProps;
 
       if (!jsonCep.cep) {
-        setErro(true);
         setLoading(false);
+        return setErro(true);
       }
 
       setDadosCep(jsonCep);

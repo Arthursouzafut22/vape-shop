@@ -7,8 +7,10 @@ import { InputsProps } from "./Types";
 import WrapperCep from "./WrapperCep/WrapperCep";
 import WrapperCart from "./WrapperCart/WrapperCart";
 import WrapperPix from "./WrapperPix/WrapperPix";
+import { useNavigate } from "react-router-dom";
 
 const OrderDetails = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -26,6 +28,10 @@ const OrderDetails = () => {
 
   function onSubmit(data: InputsProps) {
     console.log(data.cep);
+
+    if (data) {
+      navigate("/payment");
+    }
   }
 
   return (

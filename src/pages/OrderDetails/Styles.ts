@@ -92,6 +92,7 @@ export const WrapperTwo = styled.div`
   padding: 1.56rem;
   border-radius: 0.5rem;
   box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
+  position: relative;
 
   b {
     display: block;
@@ -101,6 +102,10 @@ export const WrapperTwo = styled.div`
   p {
     font-size: 0.75rem;
     color: red;
+  }
+
+  .wpp-cep {
+    position: relative;
   }
 `;
 

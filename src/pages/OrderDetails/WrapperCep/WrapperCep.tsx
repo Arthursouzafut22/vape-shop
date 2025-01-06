@@ -22,23 +22,26 @@ const WrapperCep = ({ register, errors, setValue }: UiCepProps) => {
     <>
       <S.WrapperTwo>
         <b>Entrega</b>
-        <Input
-          {...register("cep", {
-            onChange: (e) => {
-              const cep = e.target.value;
-              if (cep.length === 8) {
-                requestCep(cep);
-              }
-            },
-          })}
-          label="CEP"
-          placeholder="12345-000"
-          maxLength={8}
-          type="number"
-        />
-        {erro && <p style={{ color: "red" }}>CEP inválido</p>}
-        {loading && <LoaderForm />}
+        <div className="wpp-cep">
+          <Input
+            {...register("cep", {
+              onChange: (e) => {
+                const cep = e.target.value;
+                if (cep.length === 8) {
+                  requestCep(cep);
+                }
+              },
+            })}
+            label="CEP"
+            placeholder="12345-000"
+            maxLength={8}
+            type="number"
+            className="wpp-cep"
+          />
+          {loading && <LoaderForm />}
+        </div>
         {errors.cep && <p>{errors.cep.message}</p>}
+        {erro && <p style={{ color: "red" }}>CEP inválido</p>}
         <S.WrapeprInputs>
           <div>
             <Input

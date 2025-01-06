@@ -7,6 +7,9 @@ export const Loader = styled.div`
   height: 25px;
   animation: spin89345 1s linear infinite;
   border-radius: 50%;
+  position: absolute;
+  top: 48%;
+  right: 2%;
 
   @keyframes spin89345 {
     0% {
