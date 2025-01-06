@@ -23,7 +23,9 @@ export const validationSchema = yup.object({
     .string()
     .required("Informe CEP válido")
     .matches(/^\d{5}-?\d{3}$/, "Digite um CEP válido")
-    .length(8, "O CEP deve ter 8 dígitos"),
+    .length(8, "O CEP deve ter 8 dígitos")
+    .max(8, "Apenas 8 digitos são aceitos"),
+
   endereco: yup.string().required("O endereço é obrigatório"),
   numero: yup.string().required("O Número é obrigatório"),
   bairro: yup.string().required("O Bairro é obrigatório"),

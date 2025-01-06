@@ -13,5 +13,16 @@ export type InfoProps = {
   produtos: DadosProps[];
   totalPaginas: number;
   totalProdutos: number;
-  find:(i: unknown) => void;
+  find: (i: unknown) => void;
+};
+
+export type CepProps = {
+  cep: string;
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+  estado: string;
+  regiao: string;
 };

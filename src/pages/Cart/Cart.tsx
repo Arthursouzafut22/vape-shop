@@ -26,7 +26,7 @@ const Cart: React.FC = () => {
             <S.Cart>
               {state &&
                 state.map((item) => (
-                  <S.Product mobile={mobile}>
+                  <S.Product mobile={mobile} key={item}>
                     <img
                       src={API_BASE_IMAGE + item.imagem[0]}
                       alt={item.nome}

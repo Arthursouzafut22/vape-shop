@@ -12,11 +12,20 @@ const OrderDetails = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
-  } = useForm<InputsProps>({ resolver: yupResolver(validationSchema) });
+  } = useForm<InputsProps>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      endereco: "",
+      bairro: "",
+      cidade: "",
+      estado: "",
+    },
+  });
 
   function onSubmit(data: InputsProps) {
-    console.log(data);
+    console.log(data.cep);
   }
 
   return (
@@ -63,8 +72,8 @@ const OrderDetails = () => {
             </div>
           </div>
         </S.WrapperOne>
-        <WrapperCep register={register} errors={errors} />
-        <WrapperPix/>
+        <WrapperCep register={register} errors={errors} setValue={setValue} />
+        <WrapperPix />
       </form>
       <WrapperCart />
     </S.Section>

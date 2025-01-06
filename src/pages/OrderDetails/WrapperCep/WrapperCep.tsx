@@ -2,19 +2,42 @@ import * as S from "../Styles";
 import Input from "../../../Components/Input/Input";
 import { UiCepProps } from "../Types";
 import WrapperFrete from "../WrapperFrete/WrapperFrete";
-import { memo } from "react";
+import { memo, useEffect } from "react";
+import useCep from "../../../Api/RequestCep";
+import LoaderForm from "../../../Components/LoaderForm/LoaderForm";
 
-const WrapperCep = ({ register, errors }: UiCepProps) => {
+const WrapperCep = ({ register, errors, setValue }: UiCepProps) => {
+  const { requestCep, dadosCep, loading, erro } = useCep();
+
+  useEffect(() => {
+    if (dadosCep) {
+      setValue("endereco", dadosCep?.logradouro || "");
+      setValue("bairro", dadosCep?.bairro || "");
+      setValue("cidade", dadosCep?.localidade || "");
+      setValue("estado", dadosCep?.estado || "");
+    }
+  }, [setValue, dadosCep]);
+
   return (
     <>
       <S.WrapperTwo>
         <b>Entrega</b>
         <Input
-          {...register("cep")}
+          {...register("cep", {
+            onChange: (e) => {
+              const cep = e.target.value;
+              if (cep.length === 8) {
+                requestCep(cep);
+              }
+            },
+          })}
           label="CEP"
           placeholder="12345-000"
+          maxLength={8}
           type="number"
         />
+        {erro && <p style={{ color: "red" }}>CEP inválido</p>}
+        {loading && <LoaderForm />}
         {errors.cep && <p>{errors.cep.message}</p>}
         <S.WrapeprInputs>
           <div>
