@@ -8,8 +8,8 @@ const createPixPayment = async (amount: string, description: string) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        amount,
-        description,
+        amount: amount,
+        description: description,
       }),
     });
 

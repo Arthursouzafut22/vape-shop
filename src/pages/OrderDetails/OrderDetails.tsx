@@ -8,8 +8,15 @@ import WrapperCep from "./WrapperCep/WrapperCep";
 import WrapperCart from "./WrapperCart/WrapperCart";
 import WrapperPix from "./WrapperPix/WrapperPix";
 import { useNavigate } from "react-router-dom";
+import { AuthPayment } from "../../context/ContextPayment/ContextPayment";
+import { AuthCart } from "../../context/Cart/CartContext";
+import { AuthFrete } from "../../context/ContextFrete/ContextFrete";
 
 const OrderDetails = () => {
+  const { handlePayment, setAmount, setDescription, loading } = AuthPayment();
+  const { total } = AuthCart();
+  const { selectedFrete } = AuthFrete();
+  console.log(total + selectedFrete.valor);
   const navigate = useNavigate();
   const {
     register,
@@ -26,10 +33,13 @@ const OrderDetails = () => {
     },
   });
 
-  function onSubmit(data: InputsProps) {
-    console.log(data.cep);
+  async function onSubmit(dataValues: InputsProps) {
+    console.log(dataValues);
 
-    if (data) {
+    if (dataValues && !loading) {
+      await handlePayment();
+      setAmount(String(total + selectedFrete.valor));
+      setDescription("QR Code do PIX Gerado.");
       navigate("/payment");
     }
   }

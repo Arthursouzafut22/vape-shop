@@ -38,7 +38,9 @@ const WrapperCep = ({ register, errors, setValue }: UiCepProps) => {
             type="number"
             className="wpp-cep"
           />
-          {loading && <LoaderForm />}
+          {loading && (
+            <LoaderForm color="rgba(0, 0, 0, 0.1)" position="absolute" />
+          )}
         </div>
         {errors.cep && <p>{errors.cep.message}</p>}
         {erro && <p style={{ color: "red" }}>CEP inválido</p>}

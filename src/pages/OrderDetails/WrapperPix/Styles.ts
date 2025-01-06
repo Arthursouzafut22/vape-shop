@@ -37,7 +37,10 @@ export const WrapperPix = styled.div`
   button {
     font-size: 1rem;
     font-weight: 600;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     color: #ffffff;
     background-color: #1fbb70;
     border: none;

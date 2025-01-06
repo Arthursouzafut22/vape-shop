@@ -1,7 +1,11 @@
 import * as S from "./Styles";
 import SvgPix from "../../../assets/image/soon-pix.svg";
+import { AuthPayment } from "../../../context/ContextPayment/ContextPayment";
+import LoaderForm from "../../../Components/LoaderForm/LoaderForm";
 
 const WrapperPix = () => {
+  const { loading } = AuthPayment();
+
   return (
     <S.WrapperPix>
       <b>Pagamento</b>
@@ -12,7 +16,13 @@ const WrapperPix = () => {
           para finalizar seu pagamento.
         </p>
       </div>
-      <button>FINALIZAR COMPRA</button>
+      <button>
+        {loading ? (
+          <LoaderForm color="#ffffff" position="initial" />
+        ) : (
+          "FINALIZAR COMPRA"
+        )}
+      </button>
     </S.WrapperPix>
   );
 };
