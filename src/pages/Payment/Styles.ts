@@ -4,10 +4,10 @@ export const Section = styled.section`
   max-width: 1000px;
   margin: 20px auto auto auto;
   padding: 0.94rem;
-
-  .wrapper {
-    display: flex;
-    justify-content: center;
+  h2{
+    margin: 30px auto;
+    text-align: center;
+    color: #4B4B4B;
   }
 
   .flexx {
@@ -66,6 +66,10 @@ export const CardPix = styled.div`
       opacity: 0.8;
     }
   }
+  .clip{
+    font-size: 15px;
+    margin-top: 10px;
+  }
 `;
 
 export const Codigo = styled.input`
@@ -97,18 +101,19 @@ export const WrapperInfo = styled.div`
     align-items: center;
     gap: 10px;
     padding: 12px 8px;
-
     span {
-      font-size: 20px;
+      border-radius: 50%;
+      background-color: #41c286;
+    }
+
+    span svg {
       display: flex;
       justify-content: center;
       align-items: center;
       color: #ffffff;
-      background-color: #41c286;
-      padding: 8px;
-      border-radius: 50%;
-      height: 50px;
-      width: 50px;
+      padding: 10px;
+      height: 40px;
+      width: 40px;
     }
 
     p {

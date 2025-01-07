@@ -11,7 +11,7 @@ import { FaPix } from "react-icons/fa6";
 import { AuthCart } from "../../context/Cart/CartContext";
 import Icons from "./Icons";
 import Spinner from "../../Components/Spinner/Spinner";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Product = () => {
   const { dados } = useRequest("/products");
@@ -19,11 +19,18 @@ const Product = () => {
   const { id } = useParams();
   const searchProduct = dados?.find((i) => i.id === Number(id));
   const { addProductCart } = AuthCart();
+  const [getsabor, setGetSabor] = useState("");
+  const [ixSabor, setIxSabor] = useState(0);
 
   useEffect(() => {
     window.scrollTo({ behavior: "auto", top: 0 });
   }, []);
   if (!searchProduct) return <Spinner />;
+
+  const getSabor = (sabor: string, index: number) => {
+    setGetSabor(sabor);
+    setIxSabor(index);
+  };
 
   return (
     <S.Section>
@@ -44,7 +51,10 @@ const Product = () => {
                   src={`${API_BASE_IMAGE + item}`}
                   alt={item}
                   key={index}
-                  style={{}}
+                  style={{
+                    border: index === indexImg ? "2px solid #2f982f" : "none",
+                    borderRadius: "5px",
+                  }}
                   onClick={(event) => replaceImage(event, index)}
                 />
               ))}
@@ -67,10 +77,19 @@ const Product = () => {
           </div>
 
           <div className={"div-two"}>
-            <p>Sabor: {searchProduct?.sabores[0]}</p>
+            <p>Sabor: {getsabor || searchProduct?.sabores[0]}</p>
             <S.ContainerSabores>
-              {searchProduct?.sabores.map((sabor) => (
-                <button key={sabor}>{sabor}</button>
+              {searchProduct?.sabores.map((sabor, index) => (
+                <button
+                  key={index}
+                  onClick={() => getSabor(sabor, index)}
+                  style={{
+                    background: index === ixSabor ? "#2f982f" : "none",
+                    color: index === ixSabor ? "#ffffff" : "initial",
+                  }}
+                >
+                  {sabor}
+                </button>
               ))}
             </S.ContainerSabores>
             <S.ContainerAmount>

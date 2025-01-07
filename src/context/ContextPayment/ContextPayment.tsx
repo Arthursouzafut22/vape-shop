@@ -6,22 +6,13 @@ import {
   useCallback,
 } from "react";
 import createPixPayment from "../../Api/CreatePixPayment ";
-
-type ContextPayProps = {
-  pixQrCode: null | string;
-  codigo: string;
-  loading: boolean;
-  amount:string;
-  handlePayment: () => Promise<void>;
-  setAmount: React.Dispatch<React.SetStateAction<string>>;
-  setDescription: React.Dispatch<React.SetStateAction<string>>;
-};
+import { ContextPayProps } from "./Types";
 
 const UsePagePayment = createContext<ContextPayProps | null>(null);
 
 export const AuthPayment = () => {
   const context = useContext(UsePagePayment);
-  if (!context) throw new TypeError("Error no context page!");
+  if (!context) throw new TypeError("Error no context payment!");
   return context;
 };
 
@@ -58,7 +49,7 @@ const PaymentContext = ({ children }: PropsWithChildren) => {
         handlePayment,
         setAmount,
         setDescription,
-        amount
+        amount,
       }}
     >
       {children}

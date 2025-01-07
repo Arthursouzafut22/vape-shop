@@ -122,7 +122,7 @@ export const WrapperTwo = styled.div`
       display: block;
       color: ${whiteColor};
       background-color: ${greenColor};
-      max-width: 12.5rem;
+      max-width: 14.1rem;
       width: 100%;
       padding: 0.19rem 0.5rem;
       white-space: nowrap;

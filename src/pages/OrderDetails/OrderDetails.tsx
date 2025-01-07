@@ -16,7 +16,6 @@ const OrderDetails = () => {
   const { handlePayment, setAmount, setDescription, loading } = AuthPayment();
   const { total } = AuthCart();
   const { selectedFrete } = AuthFrete();
-  console.log(total + selectedFrete.valor);
   const navigate = useNavigate();
   const {
     register,
@@ -34,8 +33,6 @@ const OrderDetails = () => {
   });
 
   async function onSubmit(dataValues: InputsProps) {
-    console.log(dataValues);
-
     if (dataValues && !loading) {
       await handlePayment();
       setAmount(String(total + selectedFrete.valor));
