@@ -37,6 +37,4 @@ export const ButtonPage = styled.button`
   cursor: pointer;
   border-radius: 0.5rem;
   border: none;
-  /* color: #ffffff; */
-  /* background-color: #2f982f; */
 `;

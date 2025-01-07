@@ -7,27 +7,29 @@ import { MdLocationPin } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import UseMedia from "../../Hooks/UseMedia";
 import { AuthCart } from "../../context/Cart/CartContext";
+import { AuthSearch } from "../../context/ProductSearchContext/ProductSearchContext";
 
 const LogoSearchCart: React.FC = () => {
   const { mobile } = UseMedia("(max-width: 1129px)");
   const { state } = AuthCart();
+  const { search, searchProduct, setSearch } = AuthSearch();
 
   return (
     <S.Wrapper>
       <S.Div mobile={mobile}>
         <img src={Logo} alt="logo" />
-        <S.Form className="form" mobile={mobile}>
+        <S.Form className="form" mobile={mobile} onSubmit={searchProduct}>
           <Input
             type="text"
-            name="text"
-            value={""}
+            name="search"
+            value={search}
+            onChange={({ target }) => setSearch(target.value)}
             placeholder="O que procura hoje ? :)"
           />
           <button>
             <FaSearch />
           </button>
         </S.Form>
-
         <NavLink to="/rastreio">
           <MdLocationPin style={{ fontSize: "26px" }} />
           {!mobile && (

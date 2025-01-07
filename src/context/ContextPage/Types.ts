@@ -4,6 +4,7 @@ export type ContextProps = {
   activeNext: boolean;
   nextPage: () => void;
   prevPage: () => void;
+  indexColor: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
-  replacePage: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  replacePage: (event: React.MouseEvent<HTMLButtonElement>, i: number) => void;
 };

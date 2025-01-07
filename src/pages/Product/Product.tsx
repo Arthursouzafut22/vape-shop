@@ -112,7 +112,9 @@ const Product = () => {
             <p className="buy">
               <SlBadge /> Compra Segura Produto Original.
             </p>
-            <S.ButtonAddCart onClick={() => addProductCart(searchProduct)}>
+            <S.ButtonAddCart
+              onClick={() => addProductCart(searchProduct, getsabor)}
+            >
               ADICIONAR AO CARRINHO
             </S.ButtonAddCart>
           </div>

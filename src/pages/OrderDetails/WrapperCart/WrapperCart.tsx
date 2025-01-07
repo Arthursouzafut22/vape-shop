@@ -18,7 +18,7 @@ const WrapperCart = () => {
               <img src={API_BASE_IMAGE + i.imagem[0]} alt="imagem" />
               <div>
                 <p>{i.nome}</p>
-                <p>{i.sabores[0]}</p>
+                <p>{i.sabor}</p>
               </div>
             </div>
             <span>{i.quantidade} un.</span>

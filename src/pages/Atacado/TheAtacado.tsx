@@ -21,7 +21,7 @@ const Atacado: React.FC = () => {
       {isLoading && <Spinner />}
       <S.Wrapper>
         {dados &&
-          dados.produtos.map((item) => <Cards key={item.id} item={item} />)}
+          dados?.produtos?.map((item) => <Cards key={item.id} item={item} />)}
       </S.Wrapper>
       <Slide />
       <ButtonsPagination />

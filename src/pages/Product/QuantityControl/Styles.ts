@@ -8,7 +8,7 @@ export const WrapperControl = styled.div`
   input {
     font-size: 1.06rem;
     text-align: center;
-    padding: 0.25rem;
+    padding: 0.2rem;
     width: 100%;
     outline: none;
     pointer-events: none;
@@ -16,10 +16,14 @@ export const WrapperControl = styled.div`
     background-color: #f6f6f6;
   }
 
+  button svg {
+    width: 16px;
+    height: 16px;
+  }
+
   button {
     font-size: 1.06rem;
-    display: block;
-    padding: 0.25rem;
+    padding: 0.2rem 0.35rem;
     cursor: pointer;
     background-color: #2f982f;
     border: none;

@@ -4,10 +4,8 @@ import {
   useContext,
   useState,
   useCallback,
-  useEffect,
 } from "react";
 import { ContextProps } from "./Types";
-import { CSSProperties } from "styled-components";
 
 const UsePageContext = createContext<ContextProps | null>(null);
 
@@ -21,7 +19,7 @@ const PageContext = ({ children }: PropsWithChildren) => {
   const [page, setPage] = useState<number>(1);
   const [activePrev, setActivePrev] = useState(false);
   const [activeNext, setActiveNext] = useState(true);
-
+  const [indexColor, setIndexColor] = useState(0);
 
   function scrollTop() {
     setTimeout(() => {
@@ -39,20 +37,13 @@ const PageContext = ({ children }: PropsWithChildren) => {
 
   // Trocar de pagina...
   const replacePage = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
+    (event: React.MouseEvent<HTMLButtonElement>, i: number) => {
       const { target } = event;
       const element = target as HTMLDivElement;
       setPage(Number(element.innerText));
       checkActiveButton(element.innerText);
+      setIndexColor(i);
       scrollTop();
-
-      if (element.innerText === "1") {
-        element.style.background = "#2f982f";
-      } else if (element.innerText === "2") {
-        element.style.background = "initial";
-      } else {
-        element.style.background = "initial";
-      }
     },
     []
   );
@@ -62,6 +53,7 @@ const PageContext = ({ children }: PropsWithChildren) => {
     setPage((back) => back - 1);
     setActiveNext(true);
     setActivePrev(false);
+    setIndexColor(0);
     scrollTop();
   }, []);
 
@@ -70,6 +62,7 @@ const PageContext = ({ children }: PropsWithChildren) => {
     setPage((next) => next + 1);
     setActiveNext(false);
     setActivePrev(true);
+    setIndexColor(1);
     scrollTop();
   }, []);
 
@@ -83,6 +76,7 @@ const PageContext = ({ children }: PropsWithChildren) => {
         prevPage,
         activePrev,
         activeNext,
+        indexColor,
       }}
     >
       {children}

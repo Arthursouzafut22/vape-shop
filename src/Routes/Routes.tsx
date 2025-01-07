@@ -10,8 +10,10 @@ import Rastreio from "../pages/Rastreio/Rastreio";
 import OrderDetails from "../pages/OrderDetails/OrderDetails";
 import Payment from "../pages/Payment/Payment";
 import Footer from "../Components/Footer/Footer";
+import Search from "../pages/Search/Search";
 import { PropsWithChildren } from "react";
 import { useLocation } from "react-router-dom";
+import SearchContext from "../context/ProductSearchContext/ProductSearchContext";
 
 const Layout = ({ children }: PropsWithChildren) => {
   const location = useLocation();
@@ -30,19 +32,22 @@ const Layout = ({ children }: PropsWithChildren) => {
 export const Router = () => {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/atacado" element={<Atacado />} />
-          <Route path="/liquidos" element={<Liquidos />} />
-          <Route path="/contato" element={<Contato />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/rastreio" element={<Rastreio />} />
-          <Route path="/order" element={<OrderDetails />} />
-          <Route path="/payment" element={<Payment />} />
-        </Routes>
-      </Layout>
+      <SearchContext>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/atacado" element={<Atacado />} />
+            <Route path="/liquidos" element={<Liquidos />} />
+            <Route path="/contato" element={<Contato />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/rastreio" element={<Rastreio />} />
+            <Route path="/order" element={<OrderDetails />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/search" element={<Search />} />
+          </Routes>
+        </Layout>
+      </SearchContext>
     </BrowserRouter>
   );
 };

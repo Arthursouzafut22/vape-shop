@@ -29,10 +29,11 @@ const ShoppingCartContext = ({ children }: PropsWithChildren) => {
   }, [state]);
 
   //Adicionar produto no carrinho...
-  function addProductCart(product: DadosProps) {
+  function addProductCart(product: DadosProps, getsabor: string) {
     dispatch({
       type: "ADD_PRODUCT",
       payload: product,
+      sabor: getsabor,
       quanti: quantity,
     });
     toast.success(`Produto Adicionado Ao Carrinho.`);

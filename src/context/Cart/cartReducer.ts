@@ -19,7 +19,10 @@ export function reduceCart(state: DadosProps[], action: Action): DadosProps[] {
             : item;
         });
       } else {
-        return [...state, { ...action.payload, quantidade: action.quanti }];
+        return [
+          ...state,
+          { ...action.payload, sabor: action.sabor, quantidade: action.quanti },
+        ];
       }
     }
     case "REMOVE_PRODUCT": {

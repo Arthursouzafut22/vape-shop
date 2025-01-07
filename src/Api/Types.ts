@@ -6,6 +6,7 @@ export type DadosProps = {
   sabores: string[];
   quantidade: number;
   desconto: number;
+  sabor:string
 };
 
 export type InfoProps = {
@@ -13,7 +14,6 @@ export type InfoProps = {
   produtos: DadosProps[];
   totalPaginas: number;
   totalProdutos: number;
-  find: (i: unknown) => void;
 };
 
 export type CepProps = {

@@ -7,27 +7,35 @@ import {
 
 const ButtonsPagination = () => {
   const numbersPage: number[] = [1, 2];
-  const { styless, replacePage, nextPage, prevPage, activePrev, activeNext } =
-    AuthPage();
+  const {
+    replacePage,
+    nextPage,
+    prevPage,
+    activePrev,
+    activeNext,
+    indexColor,
+  } = AuthPage();
 
   return (
     <S.WrapperButtons>
       <button
         className="back"
         onClick={prevPage}
-        style={{ visibility: activePrev ? "visible" : "hidden"}}
+        style={{ visibility: activePrev ? "visible" : "hidden" }}
       >
         <MdOutlineArrowBackIos /> Anterior
       </button>
 
       <div className="btns-page">
         {numbersPage &&
-          numbersPage.map((button) => (
+          numbersPage.map((button, i) => (
             <S.ButtonPage
-              key={button}
-              onClick={replacePage}
-              // style={{...styless}}
-              
+              key={i}
+              onClick={(event) => replacePage(event, i)}
+              style={{
+                background: i === indexColor ? "#2f982f" : "none",
+                color: i === indexColor ? "#ffffff" : "initial",
+              }}
             >
               {button}
             </S.ButtonPage>
