@@ -4,7 +4,15 @@ export const Section = styled.section`
   max-width: 1200px;
   margin: 20px auto auto auto;
   padding: 0.19rem 0.94rem;
-  border: 1px solid;
+
+  h1{
+    margin-top: 8px;
+  }
+
+ .result{
+  font-size: 18px;
+  padding-left: 0.19rem ;
+}
 `;
 
 export const Wrapper = styled.div`
@@ -12,9 +20,9 @@ export const Wrapper = styled.div`
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   gap: 15px;
-  padding: 0.19rem 0.94rem;
   flex-wrap: wrap;
   margin-top: 15px;
+
 
   @media screen and (max-width: 912px) {
     grid-template-columns: repeat(3, 1fr);

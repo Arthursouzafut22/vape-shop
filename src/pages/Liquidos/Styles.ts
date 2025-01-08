@@ -4,7 +4,7 @@ export const Section = styled.section`
   max-width: 1200px;
   margin: 20px auto auto auto;
 
-  h2{
+  h2 {
     padding-inline: 0.94rem;
   }
 `;

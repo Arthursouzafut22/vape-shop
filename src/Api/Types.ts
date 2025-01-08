@@ -6,7 +6,7 @@ export type DadosProps = {
   sabores: string[];
   quantidade: number;
   desconto: number;
-  sabor:string
+  sabor: string;
 };
 
 export type InfoProps = {

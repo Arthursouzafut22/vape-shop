@@ -4,7 +4,7 @@ export const Section = styled.section`
   max-width: 1200px;
   margin: 20px auto auto auto;
 
-  h1{
+  h1 {
     padding-inline: 0.94rem;
   }
 `;
@@ -26,7 +26,7 @@ export const DivOne = styled.div`
     font-weight: normal;
   }
 
-  form {
+  .form {
     margin-top: 20px;
 
     button {
@@ -86,7 +86,7 @@ export const DivTwo = styled.div`
   }
 `;
 
-export const WrapperInputs = styled.div`
+export const WrapperInputss = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,7 +104,7 @@ export const WrapperInputs = styled.div`
 
     &:focus {
       outline: 2px solid #2f982f;
-      border:1px solid transparent;
+      border: 1px solid transparent;
     }
   }
 `;

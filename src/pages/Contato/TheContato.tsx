@@ -15,8 +15,8 @@ const Contato: React.FC = () => {
       <S.Wrapper mobile={mobile}>
         <S.DivOne>
           <h2>Fale Conosco</h2>
-          <form>
-            <S.WrapperInputs>
+          <form className="form">
+            <S.WrapperInputss>
               <Input
                 ref={refUser}
                 type="text"
@@ -31,7 +31,7 @@ const Contato: React.FC = () => {
                 id="email"
                 placeholder="Seu e-mail"
               />
-            </S.WrapperInputs>
+            </S.WrapperInputss>
             <textarea
               ref={refMensagem}
               rows={12}

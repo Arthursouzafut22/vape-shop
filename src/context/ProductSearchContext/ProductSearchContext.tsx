@@ -13,18 +13,21 @@ export const AuthSearch = () => {
 };
 
 const SearchContext = ({ children }: PropsWithChildren) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const { dados } = useRequest(`/products`);
   const [search, setSearch] = useState<string>("");
   const [filteredProducts, setFilteredProducts] = useState<DadosProps[]>([]);
   if (dados === null) return;
 
+  // Buscar produtos por nome...
   const searchProduct = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const filterProducts = dados?.filter((i) =>
-      i.nome.toLowerCase().includes(search?.toLowerCase())
-    );
-    setFilteredProducts(filterProducts);
+    if (Array.isArray(dados)) {
+      const filterProducts = dados?.filter((i) =>
+        i.nome.toLowerCase().includes(search?.toLowerCase())
+      );
+      setFilteredProducts(filterProducts);
+    }
     setSearch("");
     navigate("/search");
   };

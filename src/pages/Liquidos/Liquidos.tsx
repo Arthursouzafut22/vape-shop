@@ -14,17 +14,18 @@ const Liquidos = () => {
     setPage(1);
   }, [setPage]);
 
-  return (
-    <S.Section>
-      <h2>💧Líquidos💧</h2>
-      {isLoading && <Spinner />}
-      <S.Wrapper>
-        {dados &&
-          dados.produtos.map((item) => <Cards key={item.id} item={item} />)}
-      </S.Wrapper>
-      <ButtonsPagination />
-    </S.Section>
-  );
+  if (!Array.isArray(dados))
+    return (
+      <S.Section>
+        <h2>💧Líquidos💧</h2>
+        {isLoading && <Spinner />}
+        <S.Wrapper>
+          {dados &&
+            dados.produtos.map((item) => <Cards key={item.id} item={item} />)}
+        </S.Wrapper>
+        <ButtonsPagination />
+      </S.Section>
+    );
 };
 
 export default Liquidos;

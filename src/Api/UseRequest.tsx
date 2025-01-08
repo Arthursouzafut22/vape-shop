@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "./baseUrl";
-import { DadosProps } from "./Types";
+import { DadosProps, InfoProps } from "./Types";
 
 const useRequest = (endPoint: string) => {
-  const [dados, setDados] = useState<DadosProps[] | null>(null);
+  const [dados, setDados] = useState<DadosProps[] | InfoProps>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -15,11 +15,16 @@ const useRequest = (endPoint: string) => {
         setIsLoading(true);
         const $esponse = await fetch(`${API_BASE_URL + endPoint}`, { signal });
         if (!$esponse.ok) throw new Error("Error no response!");
-        const $json = (await $esponse.json()) as DadosProps[];
-        setDados($json);
+        const $json = await $esponse.json();
+
+        if (!Array.isArray($json)) {
+          setDados($json as InfoProps);
+        }
+        setDados($json as DadosProps[]);
         setIsLoading(false);
       } catch (erro) {
         console.error("Error:", erro);
+        setIsLoading(false);
       }
     })();
 

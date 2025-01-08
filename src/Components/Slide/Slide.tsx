@@ -1,59 +1,51 @@
 import * as S from "./Styles";
-import useRequest from "../../Api/UseRequest";
-import { useEffect, useRef, useState } from "react";
 import React from "react";
-import Cards from "../Cards/Cards";
-import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import Img1 from "../../assets/image/img1.webp";
+import Img2 from "../../assets/image/img2.webp";
+import Img3 from "../../assets/image/img3.webp";
+import Img4 from "../../assets/image/img4.webp";
 
 const Slide: React.FC = () => {
-  const { dados } = useRequest("/vendidos");
-  const divRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState<number>(0);
-  const [activeNext, setActiveNext] = useState(true);
-  const [activePrev, setActivePrev] = useState(false);
-
-  useEffect(() => {
-    if (!divRef.current) throw new Error("Error!");
-    const divElement = divRef.current;
-    const medida = divElement.getBoundingClientRect().width / 2 + 8;
-    setWidth(Math.floor(medida));
-  }, [width]);
-
-  function next() {
-    if (!divRef.current) return null;
-    divRef.current.style.transform = `translateX(-${width}px)`;
-    divRef.current.style.transition = `0.5s ease-in-out`;
-    setActivePrev(true);
-    setActiveNext(false);
-  }
-
-  function prev() {
-    if (!divRef.current) return null;
-    divRef.current.style.transform = `translateX(-${0}px)`;
-    setActivePrev(false);
-    setActiveNext(true);
-  }
-
   return (
     <S.WrapperSlide>
-      <h2>MAIS VENDIDOS</h2>
-
-      <div className="wrapper" ref={divRef}>
-        {dados &&
-          dados.produtos.map((item) => <Cards item={item} key={item.id} />)}
-      </div>
-
-      {activePrev && (
-        <S.ButtonPrev onClick={prev}>
-          <GrCaretPrevious />
-        </S.ButtonPrev>
-      )}
-
-      {activeNext && (
-        <S.ButtonNext onClick={next}>
-          <GrCaretNext />
-        </S.ButtonNext>
-      )}
+      <Swiper
+        modules={[Navigation]}
+        navigation
+        spaceBetween={20}
+        slidesPerView={2}
+        loop={true}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          476: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1200: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+        }}
+      >
+        <SwiperSlide>
+          <img src={Img1} style={{ maxWidth: "100%" }} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={Img2} style={{ maxWidth: "100%" }} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={Img3} style={{ maxWidth: "100%" }} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={Img4} style={{ maxWidth: "100%" }} />
+        </SwiperSlide>
+      </Swiper>
     </S.WrapperSlide>
   );
 };
