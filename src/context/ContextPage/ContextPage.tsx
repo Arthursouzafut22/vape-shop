@@ -77,6 +77,7 @@ const PageContext = ({ children }: PropsWithChildren) => {
         activePrev,
         activeNext,
         indexColor,
+        setIndexColor,
       }}
     >
       {children}

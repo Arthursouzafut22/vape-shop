@@ -7,12 +7,13 @@ import { AuthPage } from "../../context/ContextPage/ContextPage";
 import ButtonsPagination from "../../Components/ButtonsPagination/ButtonsPagination";
 
 const Liquidos = () => {
-  const { page, setPage } = AuthPage();
+  const { page, setPage, setIndexColor } = AuthPage();
   const { dados, isLoading } = useRequest(`/liquido?page=${page}&limit=12`);
 
   useEffect(() => {
     setPage(1);
-  }, [setPage]);
+    setIndexColor(0);
+  }, [setPage, setIndexColor]);
 
   if (!Array.isArray(dados))
     return (
