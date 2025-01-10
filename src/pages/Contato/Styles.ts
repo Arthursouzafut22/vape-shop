@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const flexItem = css`
+  display: flex;
+  align-items: center;
+`;
 
 export const Section = styled.section`
   max-width: 1200px;
@@ -14,7 +19,7 @@ export const Wrapper = styled.div<{ mobile: boolean }>`
   align-items: start;
   justify-content: space-between;
   flex-wrap: ${({ mobile }) => mobile && "wrap"};
-  gap: 20px;
+  gap: 1.25rem;
   margin-top: 20px;
 `;
 
@@ -30,10 +35,10 @@ export const DivOne = styled.div`
     margin-top: 20px;
 
     button {
-      display: block;
       font-size: 1rem;
       font-weight: 500;
       padding: 0.625rem;
+      display: block;
       border-radius: 0.5rem;
       border: none;
       cursor: pointer;
@@ -46,13 +51,18 @@ export const DivOne = styled.div`
       }
     }
 
+    p {
+      font-size: 0.81rem;
+      color: red;
+    }
+
     textarea {
-      font-size: 16px;
+      font-size: 1rem;
       display: block;
       width: 100%;
       margin-top: 10px;
-      padding: 10px;
-      border-radius: 8px;
+      padding: 0.63rem;
+      border-radius: 0.5rem;
       border: 1px solid #eaeaea;
       outline: 1px solid transparent;
 
@@ -73,11 +83,10 @@ export const DivTwo = styled.div`
   }
 
   p {
-    font-size: 17px;
+    font-size: 1.06rem;
     margin-top: 20px;
-    display: flex;
-    align-items: center;
-    gap: 3px;
+    ${flexItem};
+    gap: 0.19rem;
     color: #677279;
 
     span {
@@ -87,24 +96,27 @@ export const DivTwo = styled.div`
 `;
 
 export const WrapperInputss = styled.div`
-  display: flex;
-  align-items: center;
+  ${flexItem};
   justify-content: center;
-  gap: 10px;
+  gap: 0.63rem;
 
-  input {
-    font-size: 1rem;
-    display: block;
-    color: #677279;
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #eaeaea;
-    outline: 1px solid transparent;
+  .caixa {
+    flex: 1;
 
-    &:focus {
-      outline: 2px solid #2f982f;
-      border: 1px solid transparent;
+    input {
+      font-size: 1rem;
+      display: block;
+      color: #677279;
+      width: 100%;
+      padding: 0.63rem;
+      border-radius: 8px;
+      border: 1px solid #eaeaea;
+      outline: 1px solid transparent;
+
+      &:focus {
+        outline: 2px solid #2f982f;
+        border: 1px solid transparent;
+      }
     }
   }
 `;

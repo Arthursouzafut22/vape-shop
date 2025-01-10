@@ -1,20 +1,25 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const flexItem = css`
+  display: flex;
+  align-items: center;
+`;
 
 export const Section = styled.section`
   max-width: 1000px;
   margin: 20px auto auto auto;
   padding: 0.94rem;
-  h2{
+  h2 {
     margin: 30px auto;
     text-align: center;
-    color: #4B4B4B;
+    color: #4b4b4b;
   }
 
   .flexx {
     display: flex;
     justify-content: center;
     align-items: start;
-    gap: 20px;
+    gap: 1.25rem;
 
     @media screen and (max-width: 873px) {
       flex-wrap: wrap;
@@ -24,23 +29,22 @@ export const Section = styled.section`
 
 export const CardPix = styled.div`
   margin: 0 auto;
-  display: flex;
+  ${flexItem};
   flex-direction: column;
-  align-items: center;
-  gap: 6px;
+  gap: 0.38rem;
   background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
   width: 100% !important;
   box-shadow: 2px 5px 11px -1px rgba(204, 204, 204, 0.61);
 
   .time {
-    font-size: 35px;
+    font-size: 2.19rem;
     font-weight: bold;
   }
 
   p {
-    font-size: 17px;
+    font-size: 1.06rem;
     font-weight: 600;
   }
   .pay {
@@ -66,21 +70,21 @@ export const CardPix = styled.div`
       opacity: 0.8;
     }
   }
-  .clip{
-    font-size: 15px;
+  .clip {
+    font-size: 0.94rem;
     margin-top: 10px;
   }
 `;
 
 export const Codigo = styled.input`
-  font-size: 17px;
+  font-size: 1.06rem;
   text-align: center;
   width: 100%;
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
   border: 1px solid #9f9f9f;
   display: flex;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   outline: none;
   pointer-events: none;
 `;
@@ -97,36 +101,33 @@ export const WrapperInfo = styled.div`
   }
 
   .wrapper-infos {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 8px;
+    ${flexItem};
+    gap: 0.63rem;
+    padding: 0.75rem 0.5rem;
     span {
       border-radius: 50%;
       background-color: #41c286;
     }
 
     span svg {
-      display: flex;
+      ${flexItem};
       justify-content: center;
-      align-items: center;
       color: #ffffff;
-      padding: 10px;
+      padding: 0.63rem;
       height: 40px;
       width: 40px;
     }
 
     p {
-      font-size: clamp(14px, 3vw, 16px);
+      font-size: clamp(0.88rem, 3vw, 1rem);
       line-height: 1.3;
       color: #797979;
     }
   }
   .wrapper-ambiente {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 8px;
+    ${flexItem};
+    gap: 0.63rem;
+    padding: 0.75rem 0.5rem;
 
     .vertical {
       border: 0.5px solid #d1d1d1;
