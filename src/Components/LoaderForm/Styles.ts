@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Loader = styled.div<{ color: string; position: string }>`
   border: 4px solid ${(props) => props.color};
   border-left-color: transparent;
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   animation: spin89345 1s linear infinite;
   border-radius: 50%;
   position: ${(props) => props.position};

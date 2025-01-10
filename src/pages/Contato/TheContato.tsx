@@ -4,23 +4,40 @@ import UseMedia from "../../Hooks/UseMedia";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { validationShemaContato } from "./Shema";
-
-type ContatosProps = {
-  name: string;
-  email: string;
-  mensagem: string;
-};
+import emailjs from "@emailjs/browser";
+import { ContatosProps } from "./Types";
+import { useState } from "react";
+import LoaderForm from "../../Components/LoaderForm/LoaderForm";
+import { toast } from "react-toastify";
 
 const Contato: React.FC = () => {
   const { mobile } = UseMedia("(max-width:998px)");
+  const [spinner, setSpinner] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<ContatosProps>({ resolver: yupResolver(validationShemaContato) });
 
-  const onSubmit = (data: ContatosProps) => {
-    console.log(data);
+  const onSubmit = async (data: ContatosProps) => {
+    const templeteParams = {
+      from_name: data.name,
+      email: data.email,
+      mensagem: data.mensagem,
+    };
+    setSpinner(true);
+    await emailjs.send(
+      "service_f0c7pnf",
+      "template_wv97qnh",
+      templeteParams,
+      "HmzCXjEDG2wKJAZMw"
+    );
+    setSpinner(false);
+    toast.success("Email enviado com sucesso!");
+    setValue("email", "");
+    setValue("name", "");
+    setValue("mensagem", "");
   };
 
   return (
@@ -60,7 +77,17 @@ const Contato: React.FC = () => {
               placeholder="Sua mensagem"
             />
             {errors.mensagem && <p>{errors.mensagem.message}</p>}
-            <button>Enviar mensagem</button>
+            {spinner && (
+              <button
+                style={{ display: "flex", alignItems: "center", gap: "7px" }}
+              >
+                {" "}
+                Enviando
+                <LoaderForm color={"#ffffff"} position={"initial"} />
+              </button>
+            )}
+
+            {!spinner && <button>Enviar mensagem</button>}
           </form>
         </S.DivOne>
         <S.DivTwo>
