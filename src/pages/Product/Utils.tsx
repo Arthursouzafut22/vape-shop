@@ -1,10 +1,8 @@
-import { useState } from "react";
-
-import { useCallback } from "react";
+import { useState, useCallback } from "react";
 
 type ClickHandler = React.MouseEvent<HTMLImageElement>;
 
-// Hook para trocar os index das imagems...
+// Trocar os index das imagems...
 const useImage = () => {
   const [indexImg, setIndexImg] = useState<number>(0);
 

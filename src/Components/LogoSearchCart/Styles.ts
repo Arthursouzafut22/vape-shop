@@ -16,13 +16,13 @@ export const Div = styled.div<{ mobile: boolean }>`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0.19rem 0.94rem;
-  
 
   img {
     display: block;
     max-width: ${({ mobile }) => (mobile ? "5.00rem" : "6.25rem")};
     margin: 0;
     padding: 0;
+    cursor: pointer;
   }
 
   & :nth-child(3) {

@@ -8,16 +8,18 @@ import { NavLink } from "react-router-dom";
 import UseMedia from "../../Hooks/UseMedia";
 import { AuthCart } from "../../context/Cart/CartContext";
 import { AuthSearch } from "../../context/ProductSearchContext/ProductSearchContext";
+import { useNavigate } from "react-router-dom";
 
 const LogoSearchCart: React.FC = () => {
-  const { mobile } = UseMedia("(max-width: 1129px)");
+  const navigate = useNavigate();
   const { state } = AuthCart();
+  const { mobile } = UseMedia("(max-width: 1129px)");
   const { search, searchProduct, setSearch } = AuthSearch();
 
   return (
     <S.Wrapper>
       <S.Div mobile={mobile}>
-        <img src={Logo} alt="logo" />
+        <img src={Logo} alt="logo" onClick={() => navigate("/")} />
         <S.Form className="form" mobile={mobile} onSubmit={searchProduct}>
           <Input
             type="text"

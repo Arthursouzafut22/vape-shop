@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import Input from "../../../Components/Input/Input";
 import { AuthCart } from "../../../context/Cart/CartContext";
-import { DadosProps } from "../../../Api/UseRequest";
+import { DadosProps } from "../../../Api/Types";
 
 type PropsQuanty = {
   quantidade: number;

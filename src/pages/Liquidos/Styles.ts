@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
-  gap: 15px;
+  gap: 0.94rem;
   padding: 0.19rem 0.94rem;
   flex-wrap: wrap;
   margin-top: 15px;

@@ -22,6 +22,7 @@ const SearchContext = ({ children }: PropsWithChildren) => {
   // Buscar produtos por nome...
   const searchProduct = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (search.trim() === "") return;
     if (Array.isArray(dados)) {
       const filterProducts = dados?.filter((i) =>
         i.nome.toLowerCase().includes(search?.toLowerCase())
