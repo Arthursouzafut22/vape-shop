@@ -17,7 +17,7 @@ Vape Shop é um projeto de e-commerce desenvolvido para a comercialização de v
 ## Banco de Dados
 • MySQL: Utilizado para armazenamento dos produtos e informações relacionadas ao e-commerce.                       
 
-## Integração de Pagamentos
+## Integração de Pagamentos utilizando a API da PagBank, permitindo transações seguras via Pix
 • Implementação de um sistema de pagamento integrado para permitir transações seguras.                                 
 
 ## Funcionalidades
